@@ -1,4 +1,9 @@
 # Getting Started with Create React App
+For this project i will be making use of Chakra UI
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

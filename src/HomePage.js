@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./HomePage.css"; // Updated CSS file
+import "./HomePage.css";
 
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const HomePage = () => {
       {/* Navbar Section */}
       <nav className="navbar">
         <div className="logo">
-          <a href="#">XYZ Academy</a>
+          <a href="#">NOELRAYS FX</a>
         </div>
         <ul className={`nav-links ${isMenuOpen ? "nav-active" : ""}`}>
           <li><a href="#">Home</a></li>

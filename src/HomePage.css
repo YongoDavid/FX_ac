@@ -161,7 +161,29 @@ body {
   }
 
   .hamburger {
-    display: flex;
+    /* display: flex;
+    flex-direction: column; */
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    width: 2rem;
+    height: 2px;
+    margin-top: 0rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    &::before,
+    &::after {
+      content: "";
+      background-color: var(--white);
+      width: 2rem;
+      height: 2px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+
+      transition: all 0.3s;
+    }
   }
 
   .hero h1 {

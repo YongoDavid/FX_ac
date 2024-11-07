@@ -22,7 +22,9 @@ const TimeLoadingScreen = () => {
         height: Math.random() * 100 + 50,
         color: i % 2 === 0 ? '#ff0000' : '#00ff00', // Red starts first
         isMovingUp: i % 2 !== 0, // Green moves up, Red moves down
-        speed: Math.random() * 1 + 0.5 // Random speed for each candle
+        speed: Math.random() * 1 + 0.5, // Random speed for each candle
+        hasWick: Math.random() < 0.5, // 50% chance to have a wick
+        wickHeight: Math.random() * 20 + 10 // Random wick length
       });
     }
 
@@ -30,7 +32,9 @@ const TimeLoadingScreen = () => {
     const duration = 120000;
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Set the background to black
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       candlestickData.forEach((candle, i) => {
         // Determine the direction of movement based on color
@@ -54,9 +58,29 @@ const TimeLoadingScreen = () => {
           }
         }
 
-        // Draw the candlestick with current position and color
+        // Draw the candlestick body
         ctx.fillStyle = candle.color;
         ctx.fillRect(candle.x, candle.initialY, candlestickWidth, candle.height);
+
+        // Draw the wick if the candle has one
+        if (candle.hasWick) {
+          ctx.strokeStyle = candle.color;
+          ctx.lineWidth = 2;
+
+          // Draw the top wick
+          const wickTopY = candle.initialY - candle.wickHeight;
+          ctx.beginPath();
+          ctx.moveTo(candle.x + candlestickWidth / 2, candle.initialY);
+          ctx.lineTo(candle.x + candlestickWidth / 2, wickTopY);
+          ctx.stroke();
+
+          // Draw the bottom wick
+          const wickBottomY = candle.initialY + candle.height + candle.wickHeight;
+          ctx.beginPath();
+          ctx.moveTo(candle.x + candlestickWidth / 2, candle.initialY + candle.height);
+          ctx.lineTo(candle.x + candlestickWidth / 2, wickBottomY);
+          ctx.stroke();
+        }
       });
 
       elapsedTime += 100;

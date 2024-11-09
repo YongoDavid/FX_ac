@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+/* HOME PAGE NAVBAR  */
+.Navigation > a {
+  display: flex;
+  flex-direction: row;
+}

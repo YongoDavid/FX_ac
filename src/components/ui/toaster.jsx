@@ -1,3 +1,12 @@
+import {
+  Toaster as ChakraToaster,
+  Portal,
+  Spinner,
+  Stack,
+  Toast,
+  createToaster,
+} from '@chakra-ui/react'
+
 function _optionalChain(ops) {
   let lastAccessLHS = undefined
   let value = ops[0]
@@ -21,14 +30,6 @@ function _optionalChain(ops) {
 }
 ;('use client')
 
-import {
-  Toaster as ChakraToaster,
-  Portal,
-  Spinner,
-  Stack,
-  Toast,
-  createToaster,
-} from '@chakra-ui/react'
 
 export const toaster = createToaster({
   placement: 'bottom-end',
@@ -38,13 +39,9 @@ export const toaster = createToaster({
 export const Toaster = () => {
   return (
     <Portal>
-      <ChakraToaster
-        toaster={toaster}
-        insetInline={{ mdDown: '1rem' }}
-        width={{ md: '356px' }}
-      >
+      <ChakraToaster toaster={toaster} insetInline={{ mdDown: '4' }}>
         {(toast) => (
-          <Toast.Root>
+          <Toast.Root width={{ md: 'sm' }}>
             {toast.type === 'loading' ? (
               <Spinner size='sm' color='blue.solid' />
             ) : (

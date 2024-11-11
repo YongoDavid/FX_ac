@@ -1,6 +1,6 @@
-// App.js
 import React from 'react';
-import { ChakraProvider, Box } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { Provider } from "./components/ui/provider"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -13,7 +13,7 @@ import FAQs from './pages/FAQs';
 
 function App() {
   return (
-    <ChakraProvider>
+    <Provider>
       <Router>
         <Box minHeight="100vh" display="flex" flexDirection="column">
           <Header />
@@ -30,7 +30,7 @@ function App() {
           <Footer />
         </Box>
       </Router>
-    </ChakraProvider>
+    </Provider>
   );
 }
 

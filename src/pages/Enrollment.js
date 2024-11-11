@@ -1,6 +1,6 @@
 // pages/Enrollment.js
 import React, { useState } from 'react';
-import { Box, Container, Heading, Text, VStack, HStack, Input, Select, Button } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, Input, Select, Button , createStandaloneToast} from '@chakra-ui/react';
 
 function Enrollment() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ function Enrollment() {
     paymentMethod: '',
   });
 
-//   const toast = useToast();
+  const { toast } = createStandaloneToast();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

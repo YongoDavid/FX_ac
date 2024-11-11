@@ -1,6 +1,6 @@
 // pages/Home.js
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid, Image, VStack } from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Home() {

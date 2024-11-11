@@ -1,7 +1,5 @@
-// pages/Blog.js
 import React from 'react';
-import { Box, Container, Heading, Text, SimpleGrid, Button, VStack, HStack, Image } from '@chakra-ui/react';
-
+import { Box, Container, Heading, Text, SimpleGrid, Button, VStack, Image } from '@chakra-ui/react';
 const articles = [
   { title: 'Understanding Forex Market Trends', date: '2023-05-15', excerpt: 'Learn how to identify and analyze key market trends in forex trading.' },
   { title: 'Top 5 Risk Management Strategies', date: '2023-05-10', excerpt: 'Discover essential risk management techniques to protect your forex investments.' },

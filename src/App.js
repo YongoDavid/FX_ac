@@ -1,11 +1,11 @@
+// App.js
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-import { Provider } from "./components/ui/provider"
+import { ChakraProvider, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Courses from './pages/Courses.js';
+import Courses from './pages/Courses';
 import About from './pages/About';
 import Blog from './pages/Blog';
 import Enrollment from './pages/Enrollment';
@@ -13,7 +13,7 @@ import FAQs from './pages/FAQs';
 
 function App() {
   return (
-    <Provider>
+    <ChakraProvider>
       <Router>
         <Box minHeight="100vh" display="flex" flexDirection="column">
           <Header />
@@ -30,7 +30,7 @@ function App() {
           <Footer />
         </Box>
       </Router>
-    </Provider>
+    </ChakraProvider>
   );
 }
 

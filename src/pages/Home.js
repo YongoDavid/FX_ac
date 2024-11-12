@@ -1,6 +1,6 @@
 // pages/Home.js
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid} from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid, Image, VStack } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 
 function Home() {
@@ -62,7 +62,7 @@ function Home() {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           {[
             { name: 'John Doe', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
-            { name: 'Jane Smith', text: "'I've tried other forex courses, but none compare to the quality of education I received at Forex Academy.'" },
+            { name: "'Jane Smith', text: 'I've tried other forex courses, but none compare to the quality of education I received at Forex Academy.'" },
           ].map((testimonial, index) => (
             <Box key={index} p={6} borderRadius="md" boxShadow="md">
               <Text fontSize="lg" fontStyle="italic" mb={4}>

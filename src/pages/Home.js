@@ -10,7 +10,7 @@ function Home() {
       <Box bg="blue.600" color="white" py={20}>
         <Container maxW="1200px">
           <Heading as="h1" size="2xl" mb={4}>
-            Master Forex Trading with Forex Academy
+            Master Forex Trading with Noel Reys
           </Heading>
           <Text fontSize="xl" mb={8}>
             Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
@@ -35,7 +35,7 @@ function Home() {
       <Box bg="gray.100" py={16}>
         <Container maxW="1200px">
           <Heading as="h2" size="xl" mb={8} textAlign="center">
-            Why Choose Forex Academy?
+            Why Choose Noel Rays Academy?
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             {[
@@ -62,7 +62,7 @@ function Home() {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           {[
             { name: 'John Doe', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
-            { name: "'Jane Smith', text: 'I've tried other forex courses, but none compare to the quality of education I received at Forex Academy.'" },
+            { name: 'Jane Smith', text: 'i have tried other forex courses, but none compare to the quality of education I received at Forex Academy.' },
           ].map((testimonial, index) => (
             <Box key={index} p={6} borderRadius="md" boxShadow="md">
               <Text fontSize="lg" fontStyle="italic" mb={4}>
@@ -81,7 +81,7 @@ function Home() {
             Ready to Start Your Forex Journey?
           </Heading>
           <Text fontSize="xl" mb={8}>
-            Join Forex Academy today and take the first step towards mastering forex trading.
+            Join Noel Rays Forex Academy today and take the first step towards mastering forex trading.
           </Text>
           <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
             Enroll Now

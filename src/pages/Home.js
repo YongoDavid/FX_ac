@@ -1,7 +1,9 @@
 // pages/Home.js
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid, Image, VStack } from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid, Image, VStack, Flex } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { ChevronRight, BarChart2, BookOpen, Users, Star } from "lucide-react";
+
 
 function Home() {
   return (
@@ -17,6 +19,7 @@ function Home() {
           </Text>
           <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
             Start Your Journey
+            <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
         </Container>
       </Box>
@@ -41,11 +44,16 @@ function Home() {
             {[
               { title: 'Expert-Led Courses', description: 'Learn from industry professionals with years of trading experience.' },
               { title: 'Real-Time Analysis', description: 'Access up-to-date market insights and trading strategies.' },
-              { title: 'Supportive Community', description: 'Join a network of traders to share ideas and experiences.' },
+              { title: 'Community', description: 'Join a network of traders to share ideas and experiences.' },
             ].map((benefit, index) => (
               <Box key={index} bg="white" p={6} borderRadius="md" boxShadow="md">
-                <Heading as="h3" size="lg" mb={4}>
-                  {benefit.title}
+                <Heading as="h3" size="lg" mb={4} >
+                  <Flex gap="2" direction="row" justify="center" align="center">
+                    { index === 0 && <BookOpen className="h-6 w-6 text-blue-600 mr-2" /> }
+                    { index === 1 && <BarChart2 className="h-6 w-6 text-blue-600 mr-2" /> }
+                    { index === 2 && <Users className="h-6 w-6 text-blue-600 mr-2" /> }
+                    {benefit.title}
+                  </Flex>
                 </Heading>
                 <Text>{benefit.description}</Text>
               </Box>

@@ -1,10 +1,7 @@
 // pages/Home.js
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid, Image, VStack, Flex } from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ChevronRight, BarChart2, BookOpen, Users, Star } from "lucide-react";
-
-
 function Home() {
   return (
     <Box>
@@ -12,14 +9,13 @@ function Home() {
       <Box bg="blue.600" color="white" py={20}>
         <Container maxW="1200px">
           <Heading as="h1" size="2xl" mb={4}>
-            Master Forex Trading with Noel Reys
+            Master Forex Trading with Forex Academy
           </Heading>
           <Text fontSize="xl" mb={8}>
             Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
           </Text>
           <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
             Start Your Journey
-            <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
         </Container>
       </Box>
@@ -38,22 +34,17 @@ function Home() {
       <Box bg="gray.100" py={16}>
         <Container maxW="1200px">
           <Heading as="h2" size="xl" mb={8} textAlign="center">
-            Why Choose Noel Rays Academy?
+            Why Choose Forex Academy?
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             {[
               { title: 'Expert-Led Courses', description: 'Learn from industry professionals with years of trading experience.' },
               { title: 'Real-Time Analysis', description: 'Access up-to-date market insights and trading strategies.' },
-              { title: 'Community', description: 'Join a network of traders to share ideas and experiences.' },
+              { title: 'Supportive Community', description: 'Join a network of traders to share ideas and experiences.' },
             ].map((benefit, index) => (
               <Box key={index} bg="white" p={6} borderRadius="md" boxShadow="md">
-                <Heading as="h3" size="lg" mb={4} >
-                  <Flex gap="2" direction="row" justify="center" align="center">
-                    { index === 0 && <BookOpen className="h-6 w-6 text-blue-600 mr-2" /> }
-                    { index === 1 && <BarChart2 className="h-6 w-6 text-blue-600 mr-2" /> }
-                    { index === 2 && <Users className="h-6 w-6 text-blue-600 mr-2" /> }
-                    {benefit.title}
-                  </Flex>
+                <Heading as="h3" size="lg" mb={4}>
+                  {benefit.title}
                 </Heading>
                 <Text>{benefit.description}</Text>
               </Box>
@@ -70,7 +61,7 @@ function Home() {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           {[
             { name: 'John Doe', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
-            { name: 'Jane Smith', text: 'i have tried other forex courses, but none compare to the quality of education I received at Forex Academy.' },
+            { name: 'Jane Smith', text: "'I've tried other forex courses, but none compare to the quality of education I received at Forex Academy.'" },
           ].map((testimonial, index) => (
             <Box key={index} p={6} borderRadius="md" boxShadow="md">
               <Text fontSize="lg" fontStyle="italic" mb={4}>
@@ -89,7 +80,7 @@ function Home() {
             Ready to Start Your Forex Journey?
           </Heading>
           <Text fontSize="xl" mb={8}>
-            Join Noel Rays Forex Academy today and take the first step towards mastering forex trading.
+            Join Forex Academy today and take the first step towards mastering forex trading.
           </Text>
           <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
             Enroll Now

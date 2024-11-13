@@ -12,11 +12,13 @@ function Footer() {
           <Text>Your journey to forex mastery starts here.</Text>
         </Box>
         <Box mb={4}>
-          <Text fontWeight="bold" mb={2}>Quick Links</Text>
-          <Link as={RouterLink} to="/courses" d="block">Courses</Link>
-          <Link as={RouterLink} to="/about" d="block">About Us</Link>
-          <Link as={RouterLink} to="/blog" d="block">Blog</Link>
-          <Link as={RouterLink} to="/faqs" d="block">FAQs</Link>
+          <Flex direction="column" gap={1}>
+            <Text fontWeight="bold" mb={2}>Quick Links</Text>
+            <Link as={RouterLink} to="/courses" d="block">Courses</Link>
+            <Link as={RouterLink} to="/about" d="block">About Us</Link>
+            <Link as={RouterLink} to="/blog" d="block">Blog</Link>
+            <Link as={RouterLink} to="/faqs" d="block">FAQs</Link>
+          </Flex>
         </Box>
         <Box mb={4}>
           <Text fontWeight="bold" mb={2}>Contact Us</Text>

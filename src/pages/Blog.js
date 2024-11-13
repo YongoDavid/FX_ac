@@ -79,7 +79,7 @@ function Blog() {
           </SimpleGrid>
         </Box>
 
-        {/* Forex Glossary */}
+        {/* Forex Glossary
         <Box>
           <Heading as="h2" size="xl" mb={8}>
             Forex Glossary
@@ -88,7 +88,7 @@ function Blog() {
             New to forex trading? Our comprehensive glossary explains key terms and concepts to help you navigate the world of foreign exchange.
           </Text>
           <Button colorScheme="blue">View Glossary</Button>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

@@ -40,7 +40,7 @@ function About() {
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             {teamMembers.map((member, index) => (
               <VStack key={index} align="start" spacing={4}>
-                <Image 
+                <Image
                   src={`https://via.placeholder.com/300x300?text=${member.name}`} 
                   alt={member.name} 
                   borderRadius="full" 

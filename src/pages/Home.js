@@ -16,7 +16,7 @@ function Home() {
           <Text fontSize="xl" mb={8}>
             Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
           </Text>
-          <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
+          <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" justifyContent="center">
             Start Your Journey
             <ChevronRight className="ml-2 h-4 w-4" />
           </Button>

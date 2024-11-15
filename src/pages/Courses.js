@@ -93,7 +93,7 @@ function Courses() {
       </Box>
 
       {/* Demo Lessons */}
-      <Container maxW="1200px" py={16}>
+      {/* <Container maxW="1200px" py={16}>
         <Heading as="h2" size="xl" mb={8}>
           Free Demo Lessons
         </Heading>
@@ -110,7 +110,7 @@ function Courses() {
             </Box>
           ))}
         </SimpleGrid>
-      </Container>
+      </Container> */}
     </Box>
   );
 }

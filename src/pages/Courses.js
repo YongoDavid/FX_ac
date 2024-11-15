@@ -22,7 +22,7 @@ function Courses() {
     <Box>
       <Container maxW="1200px" py={16}>
         <Heading as="h1" size="2xl" mb={8}>
-          Our Courses
+          Courses
         </Heading>
         
         {/* Search and Filter */}
@@ -72,7 +72,7 @@ function Courses() {
       <Box bg="gray.100" py={16}>
         <Container maxW="1200px">
           <Heading as="h2" size="xl" mb={8}>
-            Learning Paths
+            Learning Paths / Road Map
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             {['Beginner', 'Intermediate', 'Advanced'].map(level => (

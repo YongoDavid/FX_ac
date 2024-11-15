@@ -1,6 +1,6 @@
 // pages/Enrollment.js
 import React, { useState } from 'react';
-import { Box, Container, Heading, Text, VStack, HStack, Input, Select, Button, useToast } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, Input, Select, Button, useToast } from '@chakra-ui/react';
 
 function Enrollment() {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function Enrollment() {
       title: 'Enrollment Successful',
       description: "We've received your enrollment. Welcome to Forex Academy!",
       status: 'success',
-      duration: 5000,
+      duration: 4000,
       isClosable: true,
     });
     // Reset form
@@ -35,7 +35,7 @@ function Enrollment() {
     <Box>
       <Container maxW="1200px" py={16}>
         <Heading as="h1" size="2xl" mb={8}>
-          Enroll in a Course
+          Enroll for Mentorship
         </Heading>
         
         <VStack as="form" onSubmit={handleSubmit} spacing={6} align="stretch">

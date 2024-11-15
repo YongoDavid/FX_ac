@@ -16,7 +16,7 @@ function Header() {
           </Flex>
         </div>
         
-        <Flex as="nav" direction="row" alignItems="center" gap={4} >
+        <Flex as="nav" direction="row" alignItems="center" gap={3} >
           <Link as={RouterLink} to="/courses" mr={4}>Courses</Link>
           <Link as={RouterLink} to="/about" mr={4}>About</Link>
           <Link as={RouterLink} to="/blog" mr={4}>Blog</Link>

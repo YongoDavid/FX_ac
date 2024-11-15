@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Container, Heading, Text, SimpleGrid , Flex} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ChevronRight, BarChart2, BookOpen, Users, } from "lucide-react";
+import { ChevronRight, BarChart2, BookOpen, Users } from "lucide-react";
 import myImage from '../assets/myImage.jpg';
 import trendLine from '../assets/trendLine.jpg';
 function Home() {
@@ -33,12 +33,12 @@ function Home() {
         </Text>
       </Container> */}
 
-      <Container maxW="1200px" py={16}>
-        <Heading as="h2" size="xl" mb={8}>
-          Free Demo Lessons
+      <Container maxW="1000px" py={16}>
+        <Heading as="h2" size="xl" mb={8} textAlign="center">
+            YouTube tutorials
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-          {['Support and Resistance', 'Basic Chart Analysis'].map((lesson, index) => (
+          {['Support and Resistance', 'Support and Resistance', 'Drawing Trend-Line','Drawing Trend-Line'].map((lesson, index) => (
             <Box key={lesson} borderWidth={1} borderRadius="lg" overflow="hidden">
               {/* Display a specific image based on the index */}
               <img
@@ -51,7 +51,7 @@ function Home() {
                 <Heading as="h3" size="lg" mb={4}>
                   {lesson}
                 </Heading>
-                <Button colorScheme="blue">Watch Free Lesson</Button>
+                <Button colorScheme="blue">Watch Now</Button>
               </Box>
             </Box>
           ))}
@@ -63,7 +63,7 @@ function Home() {
       <Box bg="gray.100" py={16}>
         <Container maxW="1200px">
           <Heading as="h2" size="xl" mb={8} textAlign="center">
-            Why Choose Forex Academy?
+            Why Choose Noel Reys Academy ?
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             {[
@@ -94,8 +94,8 @@ function Home() {
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           {[
-            { name: 'John Doe', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
-            { name: 'Jane Smith', text: "'I've tried other forex courses, but none compare to the quality of education I received at Forex Academy.'" },
+            { name: 'Student', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
+            { name: 'Student', text: "I have tried other forex courses, but none compare to the quality of education I received at Forex Academy." },
           ].map((testimonial, index) => (
             <Box key={index} p={6} borderRadius="md" boxShadow="md">
               <Text fontSize="lg" fontStyle="italic" mb={4}>
@@ -114,7 +114,7 @@ function Home() {
             Ready to Start Your Forex Journey?
           </Heading>
           <Text fontSize="xl" mb={8}>
-            Join Forex Academy today and take the first step towards mastering forex trading.
+            Join Mentorship today and take the first step towards mastering forex trading.
           </Text>
           <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
             Enroll Now

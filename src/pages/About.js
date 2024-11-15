@@ -19,7 +19,7 @@ function About() {
         {/* Academy History */}
         <Box mb={16}>
           <Heading as="h2" size="xl" mb={4}>
-            Our Story
+            My Story
           </Heading>
           <Text fontSize="lg" mb={4}>
             Forex Academy was founded in 2010 with a mission to provide high-quality, accessible forex education to traders around the world. What started as a small group of passionate traders has grown into a global community of forex enthusiasts.

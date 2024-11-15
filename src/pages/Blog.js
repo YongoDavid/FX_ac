@@ -1,6 +1,6 @@
 // pages/Blog.js
 import React from 'react';
-import { Box, Container, Heading, Text, SimpleGrid, Button, VStack, HStack, Image } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, SimpleGrid, Button, VStack, Image } from '@chakra-ui/react';
 
 const articles = [
   { title: 'Understanding Forex Market Trends', date: '2023-05-15', excerpt: 'Learn how to identify and analyze key market trends in forex trading.' },
@@ -18,7 +18,7 @@ function Blog() {
     <Box>
       <Container maxW="1200px" py={16}>
         <Heading as="h1" size="2xl" mb={8}>
-          Blog & Resources
+          Resources
         </Heading>
         
         {/* Educational Articles */}

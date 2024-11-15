@@ -79,3 +79,5 @@ TOAST : Used to display a temporary message to the user
 COME BACK AND CONTINUE FROM Enrollment.js and V0
 
 i am yet to modify the comments section , i need to install (chakra snippet add blockquote)
+
+continue from the landing page and home page , on work machine.

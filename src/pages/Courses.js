@@ -69,10 +69,10 @@ function Courses() {
       </Container>
 
       {/* Learning Paths */}
-      <Box bg="gray.100" py={16}>
+      <Box  py={16}>
         <Container maxW="1200px">
           <Heading as="h2" size="xl" mb={8}>
-            Learning Paths / Road Map
+            Forex Road Map
           </Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
             {['Beginner', 'Intermediate', 'Advanced'].map(level => (

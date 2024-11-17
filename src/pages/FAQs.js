@@ -51,7 +51,7 @@ function FAQs() {
           ))}
         </Accordion>
 
-        {/* Live Chat Support */}
+        {/* Live Chat Support
         <Box mt={16} textAlign="center">
           <Heading as="h2" size="xl" mb={4}>
             Need More Help?
@@ -62,7 +62,7 @@ function FAQs() {
           <Button colorScheme="blue" size="lg">
             Start Live Chat
           </Button>
-        </Box>
+        </Box> */}
 
         {/* Contact Form */}
         <Box mt={16}>

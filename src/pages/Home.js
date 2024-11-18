@@ -68,7 +68,7 @@ function Home() {
         </Container>
       </Box>
 
-      <Container maxW="900px" py={10}>
+      <Container maxW="1000px" py={10}>
         <Heading as="h2" size="xl" mb={8} textAlign="center">
           Free YouTube tutorials
         </Heading>
@@ -80,13 +80,13 @@ function Home() {
                 src={index = 0 || 1 ? myImage : trendLine} 
                 alt="lesson"
                 sizes='10px'
-                style={{ width: "100%", objectFit: "cover" }}
+                style={{ width: "100%",  objectFit: "cover" }}
               />
-              <Box p={6}>
-                <Heading as="h3" size="lg" mb={4}>
+              <Box p={3}>
+                <Heading as="h3" size="md" mb={4}>
                   {lesson}
                 </Heading>
-                <Button colorScheme="blue">Watch Now</Button>
+                <Button colorScheme="blue" alignContent="center">Watch Now</Button>
               </Box>
             </Box>
           ))}

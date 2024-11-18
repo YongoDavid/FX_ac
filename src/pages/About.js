@@ -3,9 +3,9 @@ import React from 'react';
 import { Box, Container, Heading, Text, SimpleGrid, Image, VStack } from '@chakra-ui/react';
 
 const teamMembers = [
-  { name: 'John Smith', role: 'Founder & Lead Instructor', bio: 'John has over 15 years of experience in forex trading and has trained thousands of successful traders.' },
-  { name: 'Jane Doe', role: 'Technical Analysis Expert', bio: 'Jane specializes in advanced chart patterns and has developed several proprietary trading strategies.' },
-  { name: 'Mike Johnson', role: 'Risk Management Specialist', bio: 'Mike focuses on teaching traders how to protect their capital and manage risk effectively.' },
+  { name: 'Noel reys', role: 'Founder & Lead Instructor', bio: 'John has over 15 years of experience in forex trading and has trained thousands of successful traders.' },
+  { name: 'Noel reys', role: 'Technical Analysis Expert', bio: 'Jane specializes in advanced chart patterns and has developed several proprietary trading strategies.' },
+  { name: 'Noel reys', role: 'Risk Management Specialist', bio: 'Mike focuses on teaching traders how to protect their capital and manage risk effectively.' },
 ];
 
 function About() {

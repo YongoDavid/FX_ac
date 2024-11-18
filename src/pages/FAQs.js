@@ -13,15 +13,15 @@ const faqs = [
   },
   {
     question: 'Do you offer any certifications?',
-    answer: 'Yes, upon successful completion of a course, you will receive a certificate of completion from Forex Academy.'
+    answer: 'Yes, upon successful completion of a course, you will receive a certificate of completion from Noel Forex Academy.'
   },
   {
     question: 'What payment methods do you accept?',
-    answer: 'We accept credit cards, PayPal, and various cryptocurrencies for course payments.'
+    answer: 'We accept Bank Transfer, and various cryptocurrencies for payments.'
   },
   {
-    question: "'Can I get a refund if I'm not satisfied with a course?'",
-    answer: "'We offer a 30-day money-back guarantee if you're not satisfied with your course purchase.'"
+    question: "Can I get a refund if I'm not satisfied with a course?",
+    answer: "We offer a 30-day money-back guarantee if you're not satisfied with your course purchase."
   }
 ];
 

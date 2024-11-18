@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid , Flex} from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid , GridItem , Flex} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { ChevronRight, BarChart2, BookOpen, Users } from "lucide-react";
 import myImage from '../assets/myImage.jpg';
@@ -11,21 +11,25 @@ function Home() {
       {/* Hero Section */}
       <Box bg="blue.600" color="white" py={20}>
         <Container maxW="1200px">
-          <Flex direction="row" >
-            <Flex direction="column" justifyContent="start">
-              <Heading as="h1" size="2xl" mb={4}>
-                Master Forex Trading with Forex Academy
-              </Heading>
-              <Text fontSize="xl" mb={8}>
-                Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
-              </Text>
-              <Button  as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" justifyContent="center">
-                Start Your Journey
+          <SimpleGrid column={2} row={1}>
+            <Flex>
+              <GridItem colSpan={1}>
+                <Heading as="h1" size="2xl" mb={4}>
+                  Master Forex Trading with Forex Academy
+                </Heading>
+                <Text fontSize="xl" mb={8}>
+                  Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
+                </Text>
+                <Button  as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" justifyContent="center">
+                  Start Your Journey
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
+              </GridItem>
+              <GridItem>
+                <img src={fxChart} alt="" />
+              </GridItem>
             </Flex>
-            <img src={fxChart} alt="" />
-          </Flex>
+          </SimpleGrid>
         </Container>
       </Box>
 
@@ -64,11 +68,11 @@ function Home() {
         </Container>
       </Box>
 
-      <Container maxW="900px" py={16}>
+      <Container maxW="900px" py={10}>
         <Heading as="h2" size="xl" mb={8} textAlign="center">
-            YouTube tutorials
+          Free YouTube tutorials
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={12}>
           {['Support and Resistance', 'Support and Resistance', 'Drawing Trend-Line','Drawing Trend-Line', 'Drawing Trend-Line', 'Support and Resistance'].map((lesson, index) => (
             <Box key={lesson} borderWidth={1} borderRadius="lg" overflow="hidden">
               {/* Display a specific image based on the index */}

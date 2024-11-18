@@ -9,7 +9,7 @@ function Home() {
   return (
     <Box>
       {/* Hero Section */}
-      <Box bg="blue.600" color="white" py={20}>
+      <Box bg="gray.900" color="white" py={20}>
         <Container maxW="1200px">
           <SimpleGrid column={2} row={1}>
             <Flex>

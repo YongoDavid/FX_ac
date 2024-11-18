@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 function Footer() {
   return (
-    <Box as="footer" bg="gray.100" py={8}>
+    <Box as="footer" bg="gray.900" color="white" py={8}>
       <Flex maxW="1200px" mx="auto" flexWrap="wrap" justifyContent="space-between">
         <Box mb={4}>
           <Text fontWeight="bold" mb={2}>Forex Academy</Text>

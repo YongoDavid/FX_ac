@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 function Header() {
   return (
-    <Box as="header" bg="blue.600" color="white" py={4}>
+    <Box as="header" bg="gray.900" color="white" py={4}>
       <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between">
         <div className="flex items-center space-x-2">
           <Flex direction="row" alignItems="center" gap={4}>

@@ -6,6 +6,7 @@ import myImage from '../assets/myImage.jpg';
 import fxChart from '../assets/fxChart1.jpg';
 import trendLine from '../assets/trendLine.jpg';
 import PricingSection from '../components/PricingSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const float = keyframes`
   0% { transform: translateY(0px); }
@@ -250,37 +251,7 @@ function Home() {
       <PricingSection/>
 
       {/* Testimonials Section */}
-      <Box py={16}>
-        <Container maxW="1200px" py={10}>
-          <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
-            Student Testimonials
-          </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            {[
-              { name: 'Student', text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.' },
-              { name: 'Student', text: "I have tried other forex courses, but none compare to the quality of education I received at Forex Academy." },
-            ].map((testimonial, index) => (
-              <Box
-                key={index}
-                p={6}
-                borderRadius="lg"
-                boxShadow="xl"
-                bg={cardBg}
-                transition="all 0.3s"
-                _hover={{
-                  transform: 'translateY(-5px)',
-                  boxShadow: '2xl',
-                }}
-              >
-                <Text fontSize="lg" fontStyle="italic" mb={4}>
-                  "{testimonial.text}"
-                </Text>
-                <Text fontWeight="bold">- {testimonial.name}</Text>
-              </Box>
-            ))}
-          </SimpleGrid>
-        </Container>
-      </Box>
+      <TestimonialsSection/>
     </Box>
   );
 }

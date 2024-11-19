@@ -20,7 +20,7 @@ function Home() {
                 <Text fontSize="xl" mb={8}>
                   Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
                 </Text>
-                <Button  as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" justifyContent="center">
+                <Button  as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" justifyContent="center" variant="outline">
                   Start Your Journey
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
@@ -75,19 +75,21 @@ function Home() {
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={12}>
           {['Support and Resistance', 'Support and Resistance', 'Drawing Trend-Line','Drawing Trend-Line', 'Drawing Trend-Line', 'Support and Resistance'].map((lesson, index) => (
             <Box key={lesson} borderWidth={1} borderRadius="lg" overflow="hidden">
-              {/* Display a specific image based on the index */}
-              <img
-                src={index = 0 || 1 ? myImage : trendLine} 
-                alt="lesson"
-                sizes='10px'
-                style={{ width: "100%",  objectFit: "cover" }}
-              />
-              <Box p={3}>
-                <Heading as="h3" size="md" mb={4}>
-                  {lesson}
-                </Heading>
-                <Button colorScheme="blue" alignContent="center">Watch Now</Button>
-              </Box>
+              <Flex direction="column" alignItems="center"> {/* Add alignItems="center" */}
+                <img
+                  src={index === 0 || index === 1 ? myImage : trendLine} 
+                  alt="lesson"
+                  style={{ width: "100%", objectFit: "cover" }}
+                />
+                <Box p={3} textAlign="center"> {/* Add textAlign="center" */}
+                  <Heading as="h3" size="md" mb={4} textAlign="center">
+                    {lesson}
+                  </Heading>
+                  <Button colorScheme="blue" alignSelf="center" variant="outline"> {/* Change to alignSelf="center" */}
+                    Watch Now
+                  </Button>
+                </Box>
+              </Flex>
             </Box>
           ))}
         </SimpleGrid>
@@ -124,8 +126,8 @@ function Home() {
           <Text fontSize="xl" mb={8}>
             Join Mentorship today and take the first step towards mastering forex trading.
           </Text>
-          <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal">
-            Enroll Now
+          <Button as={RouterLink} to="/enrollment" size="lg" colorScheme="teal" >
+            Join telegram group
           </Button>
         </Container>
       </Box>

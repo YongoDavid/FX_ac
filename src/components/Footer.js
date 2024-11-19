@@ -2,6 +2,7 @@
 import React from 'react';
 import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { Instagram , Youtube  } from 'lucide-react';
 
 function Footer() {
   return (
@@ -23,8 +24,12 @@ function Footer() {
         <Box mb={4}>
           <Text fontWeight="bold" mb={2}>Contact Us</Text>
           <Text>Email: info@forexacademy.com</Text>
-          <Text>Phone: +1 (123) 456-7890</Text>
-        </Box>
+          <Text>Phone: +234 (123) 456-7890</Text>
+          <Flex mt={2} align="center" gap={3}>
+            <a href="/"><Instagram/></a>
+            <a href="https://www.youtube.com/@noelreys"><Youtube size={28}/></a>
+          </Flex>
+        </Box>  
       </Flex>
       <Text textAlign="center" mt={4}>
         © {new Date().getFullYear()} Forex Academy. All rights reserved.

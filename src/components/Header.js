@@ -21,7 +21,7 @@ function Header() {
           <Link as={RouterLink} to="/about" mr={4}>About</Link>
           <Link as={RouterLink} to="/blog" mr={4}>Blog</Link>
           <Link as={RouterLink} to="/faqs" mr={4}>FAQs</Link>
-          <Button as={RouterLink} to="/enrollment" colorScheme="teal">
+          <Button as={RouterLink} to="/enrollment" colorScheme="teal" variant="outline">
             Enroll Now
           </Button>
         </Flex>

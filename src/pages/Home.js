@@ -1,12 +1,11 @@
 import React from 'react';
-import { Box, Button, Container, Heading, Text, SimpleGrid, GridItem, Flex, useColorModeValue, keyframes } from '@chakra-ui/react';
+import { Box, Button, Container, Heading, Text, SimpleGrid, Flex, useColorModeValue, keyframes } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { ChevronRight, BarChart2, BookOpen, Users, TrendingUp } from "lucide-react";
-import myImage from '../assets/myImage.jpg';
 import fxChart from '../assets/fxChart1.jpg';
-import trendLine from '../assets/trendLine.jpg';
 import PricingSection from '../components/PricingSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import TradingVideosSection from '../components/TradingVideosSection';
 
 const float = keyframes`
   0% { transform: translateY(0px); }
@@ -39,6 +38,7 @@ function Home() {
       alignItems="center"
       position="relative"
       overflow="hidden"
+      bg="gray.900"
     >
       <Container maxW="1400px" zIndex={1}>
         <Flex
@@ -194,60 +194,10 @@ function Home() {
           </SimpleGrid>
         </Container>
       </Box>
+      {/* {Videos Section} */}
+      <TradingVideosSection/>
 
-      <Container maxW="1000px" py={16}>
-        <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
-          Trading Videos
-        </Heading>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={12}>
-          {['Support and Resistance', 'Support and Resistance', 'Drawing Trend-Line', 'Drawing Trend-Line', 'Drawing Trend-Line', 'Support and Resistance'].map((lesson, index) => (
-            <Box
-              key={lesson}
-              borderWidth={1}
-              borderRadius="lg"
-              overflow="hidden"
-              transition="all 0.3s"
-              _hover={{
-                transform: 'scale(1.05)',
-                boxShadow: 'xl',
-              }}
-            >
-              <Flex direction="column" alignItems="center">
-                <Box position="relative" width="100%" paddingBottom="56.25%">
-                  <img
-                    src={index === 0 || index === 1 ? myImage : trendLine}
-                    alt="lesson"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    }}
-                  />
-                </Box>
-                <Box p={4} textAlign="center">
-                  <Heading as="h3" size="md" mb={4}>
-                    {lesson}
-                  </Heading>
-                  <Button
-                    colorScheme="teal"
-                    variant="outline"
-                    _hover={{
-                      bg: 'blue.500',
-                      color: 'white',
-                    }}
-                  >
-                    Watch Now
-                  </Button>
-                </Box>
-              </Flex>
-            </Box>
-          ))}
-        </SimpleGrid>
-      </Container>
-
+      {/* Pricing Section */}
       <PricingSection/>
 
       {/* Testimonials Section */}

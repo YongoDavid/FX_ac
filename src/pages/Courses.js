@@ -1,15 +1,34 @@
-// pages/Courses.js
 import React, { useState } from 'react';
-import { Box, Container, Heading, SimpleGrid, Input, Select, Button, Text, Image, Badge, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  SimpleGrid,
+  Input,
+  Select,
+  Button,
+  Text,
+  Image,
+  Badge,
+  VStack,
+  HStack,
+  useColorModeValue,
+  Icon,
+  InputGroup,
+  InputLeftElement,
+} from '@chakra-ui/react';
+import { Search, Clock, DollarSign, User, BookOpen, Filter, X } from 'lucide-react';
 
 const courses = [
-  { id: 1, title: 'Forex Fundamentals', level: 'Beginner', duration: '4 weeks', price: 199, instructor: 'John Smith' },
-  { id: 2, title: 'Technical Analysis Mastery', level: 'Intermediate', duration: '6 weeks', price: 299, instructor: 'Jane Doe' },
-  { id: 3, title: 'Advanced Trading Strategies', level: 'Advanced', duration: '8 weeks', price: 399, instructor: 'Mike Johnson' },
-  // Add more courses as needed
+  { id: 1, title: 'Forex Fundamentals', level: 'Beginner', duration: '4 weeks', price: 'Free', instructor: 'Noel Reys' },
+  { id: 2, title: 'Technical Analysis Mastery', level: 'Intermediate', duration: '6 weeks', price: 'Free', instructor: 'Noel Reys' },
+  { id: 3, title: 'Trading Strategies', level: 'Advanced', duration: '8 weeks', price: 'Free', instructor: 'Noel Reys' },
+  { id: 4, title: 'Trading Concepts', level: 'Intermediate', duration: '5 weeks',price: 'Free', instructor: 'Noel Reys' },
+  { id: 5, title: 'Risk Management in Forex', level: 'Beginner', duration: '3 weeks', price: 'Free', instructor: 'Noel Reys' },
+  { id: 6, title: 'Trading Psychology', level: 'Beginner', duration: '4 weeks', price: 'Free', instructor: 'Noel Reys' },
 ];
 
-function Courses() {
+export default function Courses() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterLevel, setFilterLevel] = useState('');
 
@@ -18,101 +37,105 @@ function Courses() {
     (filterLevel === '' || course.level === filterLevel)
   );
 
+  const cardBg = useColorModeValue('white', 'gray.800');
+  const bgColor = useColorModeValue('gray.50', 'gray.900')
+  const textColor = useColorModeValue('gray.600', 'gray.400')
+  const headingColor = useColorModeValue('gray.800', 'white');
+  
+
+  const bgGradient = useColorModeValue(
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
+  );
+
   return (
-    <Box>
+    <Box bg={bgColor} minHeight="100vh">
       <Container maxW="1200px" py={16}>
-        <Heading as="h1" size="2xl" mb={8}>
-          Courses
-        </Heading>
-        
-        {/* Search and Filter */}
-        <Box mb={8}>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
-            <Input 
-              placeholder="Search courses" 
-              value={searchTerm} 
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Select 
-              placeholder="Filter by level" 
-              value={filterLevel} 
-              onChange={(e) => setFilterLevel(e.target.value)}
-            >
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-            </Select>
-            <Button onClick={() => { setSearchTerm(''); setFilterLevel(''); }}>
-              Clear Filters
-            </Button>
-          </SimpleGrid>
-        </Box>
-
-        {/* Course Listings */}
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
-          {filteredCourses.map(course => (
-            <Box key={course.id} borderWidth={1} borderRadius="lg" overflow="hidden">
-              <Image src={`https://via.placeholder.com/300x200?text=${course.title}`} alt={course.title} />
-              <Box p={6}>
-                <Badge colorScheme="blue" mb={2}>{course.level}</Badge>
-                <Heading as="h3" size="lg" mb={2}>
-                  {course.title}
-                </Heading>
-                <Text mb={4}>Instructor: {course.instructor}</Text>
-                <Text mb={4}>Duration: {course.duration}</Text>
-                <Text mb={4}>Price: ${course.price}</Text>
-                <Button colorScheme="blue">Enroll Now</Button>
-              </Box>
-            </Box>
-          ))}
-        </SimpleGrid>
-      </Container>
-
-      {/* Learning Paths */}
-      <Box  py={16}>
-        <Container maxW="1200px">
-          <Heading as="h2" size="xl" mb={8}>
-            Forex Road Map
+        <VStack spacing={8} align="stretch">
+          <Heading as="h2" size="xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            Explore Our Forex Courses
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-            {['Beginner', 'Intermediate', 'Advanced'].map(level => (
-              <VStack key={level} bg="white" p={6} borderRadius="md" boxShadow="md" align="stretch">
-                <Heading as="h3" size="lg" mb={4}>
-                  {level} Path
-                </Heading>
-                <Text mb={4}>
-                  {level === 'Beginner' ? 'Start your forex journey here.' :
-                   level === 'Intermediate' ? 'Enhance your trading skills.' :
-                   'Master advanced forex strategies.'}
-                </Text>
-                <Button colorScheme="blue" mt="auto">View Path</Button>
-              </VStack>
+          
+          {/* Search and Filter */}
+          <Box>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={Search} color="gray.300" />
+                </InputLeftElement>
+                <Input 
+                  placeholder="Search courses" 
+                  value={searchTerm} 
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </InputGroup>
+              <Select 
+                placeholder="Filter by level" 
+                value={filterLevel} 
+                onChange={(e) => setFilterLevel(e.target.value)}
+                icon={<Icon as={Filter} />}
+              >
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </Select>
+              <Button 
+                leftIcon={<Icon as={X} />}
+                onClick={() => { setSearchTerm(''); setFilterLevel(''); }}
+                colorScheme="blue"
+              >
+                Clear Filters
+              </Button>
+            </SimpleGrid>
+          </Box>
+
+          {/* Course Listings */}
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+            {filteredCourses.map(course => (
+              <Box 
+                key={course.id} 
+                borderRadius="lg" 
+                overflow="hidden" 
+                bg={cardBg}
+                boxShadow="md"
+                transition="all 0.3s"
+                _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg' }}
+              >
+                <Image 
+                  src={`https://via.placeholder.com/300x200?text=${encodeURIComponent(course.title)}`} 
+                  alt={course.title} 
+                  height="200px" 
+                  width="100%" 
+                  objectFit="cover" 
+                />
+                <Box p={6}>
+                  <Badge colorScheme="blue" mb={2}>{course.level}</Badge>
+                  <Heading as="h3" size="md" mb={2} color={headingColor}>
+                    {course.title}
+                  </Heading>
+                  <VStack align="stretch" spacing={2} mb={4}>
+                    <HStack>
+                      <Icon as={User} color="blue.500" />
+                      <Text color={textColor}>{course.instructor}</Text>
+                    </HStack>
+                    <HStack>
+                      <Icon as={Clock} color="blue.500" />
+                      <Text color={textColor}>{course.duration}</Text>
+                    </HStack>
+                    <HStack>
+                      <Icon as={DollarSign} color="blue.500" />
+                      <Text color={textColor}>{course.price}</Text>
+                    </HStack>
+                  </VStack>
+                  <Button colorScheme="blue" width="full" leftIcon={<Icon as={BookOpen} />}>
+                   Download Now
+                  </Button>
+                </Box>
+              </Box>
             ))}
           </SimpleGrid>
-        </Container>
-      </Box>
-
-      {/* Demo Lessons */}
-      {/* <Container maxW="1200px" py={16}>
-        <Heading as="h2" size="xl" mb={8}>
-          Free Demo Lessons
-        </Heading>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-          {['Introduction to Forex', 'Basic Chart Analysis'].map(lesson => (
-            <Box key={lesson} borderWidth={1} borderRadius="lg" overflow="hidden">
-              <Image src={`https://via.placeholder.com/300x200?text=${lesson}`} alt={lesson} />
-              <Box p={6}>
-                <Heading as="h3" size="lg" mb={4}>
-                  {lesson}
-                </Heading>
-                <Button colorScheme="blue">Watch Free Lesson</Button>
-              </Box>
-            </Box>
-          ))}
-        </SimpleGrid>
-      </Container> */}
+        </VStack>
+      </Container>
     </Box>
   );
 }
-
-export default Courses;

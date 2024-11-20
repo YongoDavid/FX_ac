@@ -13,6 +13,7 @@ import {
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom';
 
 const PricingCard = ({ name, price, duration, description, features, isRecommended }) => {
   const bgColor = useColorModeValue('white', 'gray.800')
@@ -69,9 +70,15 @@ const PricingCard = ({ name, price, duration, description, features, isRecommend
             </ListItem>
           ))}
         </List>
-        <Button colorScheme={isRecommended ? 'blue' : 'gray'} size="lg" w="full">
-          Get Started
-        </Button>
+        <Button
+            as={RouterLink}
+            to="/enrollment"
+            colorScheme={isRecommended ? 'blue' : 'blue'}
+            size="lg"
+            w="full"
+          >
+             Get Started
+          </Button>
       </VStack>
     </Box>
   )

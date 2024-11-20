@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Heading, Text, Flex, Avatar, Icon, useColorModeValue, keyframes } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, Flex, Icon, useColorModeValue, keyframes } from '@chakra-ui/react';
 import { Quote, Star } from 'lucide-react';
 const slide = keyframes`
   0% { transform: translateX(50%); }

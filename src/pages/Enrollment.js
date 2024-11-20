@@ -68,10 +68,11 @@ function Enrollment() {
               onChange={handleChange} 
               required
             >
-              <option value="">Select a course</option>
-              <option value="forex-fundamentals">Forex Fundamentals</option>
-              <option value="technical-analysis">Technical Analysis Mastery</option>
-              <option value="advanced-strategies">Advanced Trading Strategies</option>
+              <option value="">Select a plan</option>
+              <option value="Monthly">Monthly Plan</option>
+              <option value="3 Months">3 Months Plan</option>
+              <option value="6 Months">6 Months Plan</option>
+              <option value="Yearly">Yearly Plan</option>
             </Select>
           </VStack>
           

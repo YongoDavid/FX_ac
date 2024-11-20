@@ -142,7 +142,7 @@ export default function PricingSection() {
 
   return (
     <Box py={16} bg={bgColor}>
-      <Container maxW="container.xl">
+      <Container maxW="1300px">
         <VStack as="section" textAlign="center" mb={12}>
             <Heading as="h2" size="xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
                 Mentorship Plans

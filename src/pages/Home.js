@@ -40,7 +40,7 @@ function Home() {
       overflow="hidden"
       bg="gray.900"
     >
-      <Container maxW="1400px" zIndex={1}>
+      <Container maxW="1300px" zIndex={1}>
         <Flex
           direction={{ base: 'column', lg: 'row' }}
           alignItems="center"
@@ -111,7 +111,7 @@ function Home() {
               bg="rgba(255, 255, 255, 0.1)"
               backdropFilter="blur(10px)"
               borderRadius="full"
-              p={4}
+              p={2}
               animation={`${pulse} 2s infinite`}
             >
               <TrendingUp size={40} color="white" />
@@ -123,7 +123,7 @@ function Home() {
               bg="rgba(255, 255, 255, 0.1)"
               backdropFilter="blur(10px)"
               borderRadius="full"
-              p={4}
+              p={2}
               animation={`${pulse} 2s infinite 1s`}
             >
                <TrendingUp size={40} color="white" />
@@ -148,7 +148,7 @@ function Home() {
 
       {/* Benefits Section */}
       <Box bg={useColorModeValue('gray.50', 'gray.800')} py={16}>
-        <Container maxW="1200px">
+        <Container maxW="1300px">
           {/* Overview Section */}
           <Container maxW="1200px" py={10}>
             <Heading as="h2" size="xl" mb={5} textAlign="center" bgGradient={bgGradient} bgClip="text">

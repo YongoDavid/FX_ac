@@ -8,9 +8,9 @@ function Header() {
   const textColor = useColorModeValue('white', 'gray.100');
 
   return (
-    <Box as="header" bg={bgColor} color={textColor} py={16} boxShadow="md">
-      <Flex maxW="1400px" mx="auto" alignItems="center" justifyContent="space-between">
-        <Flex direction="row" alignItems="center" gap={4}>
+    <Box as="header" bg={bgColor} color={textColor} py={5} boxShadow="md">
+      <Flex maxW="1300px" mx="auto" alignItems="center" justifyContent="space-between">
+        <Flex direction="row" alignItems="center" gap={2}>
           <Box
             size={32}
             color="teal.400"
@@ -34,7 +34,7 @@ function Header() {
           </Link>
         </Flex>
         
-        <Flex as="nav" direction="row" alignItems="center" gap={6}>
+        <Flex as="nav" direction="row" alignItems="center" gap={10}>
           {['Courses', 'About', 'Blog', 'FAQs'].map((item) => (
             <Link
               key={item}

@@ -59,7 +59,7 @@ export default function TradingVideosSection() {
 
   return (
     <Box py={16} bg={useColorModeValue('gray.50', 'gray.900')}>
-      <Container maxW="1200px">
+      <Container maxW="1300px">
         <Heading as="h2" size="xl" mb={2} textAlign="center" bgGradient={bgGradient} bgClip="text">
           Free Trading Videos
         </Heading>

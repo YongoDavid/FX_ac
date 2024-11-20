@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
 
   return (
     <Box py={16} bg={bgColor} overflow="hidden" backgroundColor={bgColor}>
-      <Container maxW="1200px" py={10}>
+      <Container maxW="1300px" py={10}>
         <Heading as="h2" size="xl" mb={12} textAlign="center" bgGradient={bgGradient} bgClip="text">
           What Our Students Say
         </Heading>

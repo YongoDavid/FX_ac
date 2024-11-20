@@ -8,8 +8,8 @@ function Header() {
   const textColor = useColorModeValue('white', 'gray.100');
 
   return (
-    <Box as="header" bg={bgColor} color={textColor} py={4} boxShadow="md">
-      <Flex maxW="1200px" mx="auto" alignItems="center" justifyContent="space-between">
+    <Box as="header" bg={bgColor} color={textColor} py={16} boxShadow="md">
+      <Flex maxW="1400px" mx="auto" alignItems="center" justifyContent="space-between">
         <Flex direction="row" alignItems="center" gap={4}>
           <Box
             size={32}

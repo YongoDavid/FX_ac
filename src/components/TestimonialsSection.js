@@ -9,28 +9,28 @@ const slide = keyframes`
 const testimonials = [
   {
     name: 'Alex Johnson',
-    role: 'Trader',
+    role: 'Student',
     // avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.',
     rating: 5,
   },
   {
     name: 'Sarah Lee',
-    role: 'Trader',
+    role: 'Student',
     // avatar: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     text: "I have tried other forex courses, but none compare to the quality of education I received at Forex Academy.",
     rating: 5,
   },
   {
     name: 'Michael Chen',
-    role: 'Trader',
+    role: 'Student',
     // avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     text: " The blend of forex and crypto knowledge here is unparalleled. It's exactly what I needed for modern trading.",
     rating: 5,
   },
   {
     name: 'Emily Rodriguez',
-    role: 'Trader',
+    role: 'Student',
     // avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     text: 'The algorithmic trading course opened up a whole new world of possibilities for me. Highly recommended!',
     rating: 5,
@@ -49,9 +49,9 @@ export default function TestimonialsSection() {
   const quoteColor = useColorModeValue('blue.400', 'blue.300');
 
   return (
-    <Box py={16} bg={bgColor} overflow="hidden" backgroundColor={bgColor}>
+    <Box py={10} bg={bgColor} overflow="hidden" backgroundColor={bgColor}>
       <Container maxW="1300px" py={10}>
-        <Heading as="h2" size="xl" mb={12} textAlign="center" bgGradient={bgGradient} bgClip="text">
+        <Heading as="h2" size="xl" mb={10} textAlign="center" bgGradient={bgGradient} bgClip="text">
           What Our Students Say
         </Heading>
         <Box position="relative" height="400px">

@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Flex,
   Link,
   Button,
   useColorModeValue,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Icon,
   Text,
 } from '@chakra-ui/react';
@@ -16,22 +12,14 @@ import { Link as RouterLink } from 'react-router-dom';
 import {
   BookOpen,
   Info,
-  Settings,
   HelpCircle,
-  ChevronDown,
-  Calculator,
-  BarChart2,
-  DollarSign,
-  TrendingUp,
+  Settings,
 } from 'lucide-react';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
   const bgColor = useColorModeValue('gray.900', 'gray.800');
   const textColor = useColorModeValue('white', 'gray.100');
   const hoverColor = useColorModeValue('teal.400', 'teal.300');
-  const dropdownBg = useColorModeValue('gray.800', 'gray.900');
 
   return (
     <Box
@@ -75,6 +63,7 @@ export default function Header() {
           {[
             { name: 'Courses', icon: BookOpen, link: '/courses' },
             { name: 'About', icon: Info, link: '/about' },
+            { name: 'Tools', icon: Settings, link: '/tradingcalculators' },
             { name: 'FAQs', icon: HelpCircle, link: '/faqs' },
           ].map((item) => (
             <Link
@@ -95,57 +84,6 @@ export default function Header() {
               </Flex>
             </Link>
           ))}
-          <Menu
-            isOpen={isOpen}
-            onOpen={() => setIsOpen(true)}
-            onClose={() => setIsOpen(false)}
-          >
-            <MenuButton
-              as={Button}
-              rightIcon={<ChevronDown />}
-              variant="ghost"
-              _hover={{
-                bg: 'transparent',
-                color: hoverColor,
-              }}
-              _active={{
-                bg: 'transparent',
-              }}
-              onMouseEnter={() => setIsOpen(true)}
-              onMouseLeave={() => setIsOpen(false)}
-            >
-              <Flex align="center">
-                <Icon as={Settings} mr={2} />
-                <Text>Tools</Text>
-              </Flex>
-            </MenuButton>
-            <MenuList
-              bg={dropdownBg}
-              borderColor="gray.700"
-              onMouseEnter={() => setIsOpen(true)}
-              onMouseLeave={() => setIsOpen(false)}
-            >
-              {[
-                { name: 'Lot Size Calculator', icon: Calculator, link: '/tools/lot-size-calculator' },
-                { name: 'Pips Calculator', icon: BarChart2, link: '/tools/pips-calculator' },
-                { name: 'Position Size Calculator', icon: DollarSign, link: '/tools/position-size-calculator' },
-                { name: 'Risk Reward Calculator', icon: TrendingUp, link: '/tools/risk-reward-calculator' },
-              ].map((tool) => (
-                <MenuItem
-                  key={tool.name}
-                  as={RouterLink}
-                  to={tool.link}
-                  _hover={{
-                    bg: 'gray.700',
-                    color: hoverColor,
-                  }}
-                >
-                  <Icon as={tool.icon} mr={2} />
-                  {tool.name}
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
           <Button
             as={RouterLink}
             to="/enrollment"

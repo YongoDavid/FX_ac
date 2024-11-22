@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Flex,
@@ -7,6 +7,15 @@ import {
   useColorModeValue,
   Icon,
   Text,
+  IconButton,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  VStack,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
@@ -14,12 +23,21 @@ import {
   Info,
   HelpCircle,
   Settings,
+  Menu,
 } from 'lucide-react';
 
 export default function Header() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const bgColor = useColorModeValue('gray.900', 'gray.800');
   const textColor = useColorModeValue('white', 'gray.100');
   const hoverColor = useColorModeValue('teal.400', 'teal.300');
+
+  const menuItems = [
+    { name: 'Courses', icon: BookOpen, link: '/courses' },
+    { name: 'About', icon: Info, link: '/about' },
+    { name: 'Tools', icon: Settings, link: '/tools' },
+    { name: 'FAQs', icon: HelpCircle, link: '/faqs' },
+  ];
 
   return (
     <Box
@@ -33,7 +51,7 @@ export default function Header() {
       left={0}
       right={0}
       zIndex={1000}
-      height="64px" // Set a fixed height for the header
+      height="64px"
     >
       <Flex maxW="1300px" mx="auto" alignItems="center" justifyContent="space-between" height="100%">
         <Flex direction="row" alignItems="center" gap={2}>
@@ -55,17 +73,12 @@ export default function Header() {
             }}
             transition="color 0.3s"
           >
-            Noel
+            Noel Reys
           </Link>
         </Flex>
         
-        <Flex as="nav" direction="row" alignItems="center" gap={8}>
-          {[
-            { name: 'Courses', icon: BookOpen, link: '/courses' },
-            { name: 'About', icon: Info, link: '/about' },
-            { name: 'Tools', icon: Settings, link: '/tools' },
-            { name: 'FAQs', icon: HelpCircle, link: '/faqs' },
-          ].map((item) => (
+        <Flex as="nav" direction="row" alignItems="center" gap={8} display={{ base: 'none', md: 'flex' }}>
+          {menuItems.map((item) => (
             <Link
               key={item.name}
               as={RouterLink}
@@ -98,6 +111,61 @@ export default function Header() {
             Enroll Now
           </Button>
         </Flex>
+
+        <IconButton
+          aria-label="Open menu"
+          icon={<Icon as={Menu} />}
+          variant="ghost"
+          color={textColor}
+          display={{ base: 'flex', md: 'none' }}
+          onClick={onOpen}
+        />
+
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent bg={bgColor} color={textColor}>
+            <DrawerCloseButton />
+            <DrawerHeader>Menu</DrawerHeader>
+            <DrawerBody>
+              <VStack spacing={4} align="stretch">
+                {menuItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    as={RouterLink}
+                    to={item.link}
+                    fontSize="lg"
+                    fontWeight="medium"
+                    _hover={{
+                      textDecoration: 'none',
+                      color: hoverColor,
+                    }}
+                    transition="color 0.3s"
+                    onClick={onClose}
+                  >
+                    <Flex align="center">
+                      <Icon as={item.icon} mr={2} />
+                      <Text>{item.name}</Text>
+                    </Flex>
+                  </Link>
+                ))}
+                <Button
+                  as={RouterLink}
+                  to="/enrollment"
+                  colorScheme="teal"
+                  variant="outline"
+                  _hover={{
+                    bg: 'teal.500',
+                    color: 'white',
+                  }}
+                  transition="all 0.3s"
+                  onClick={onClose}
+                >
+                  Enroll Now
+                </Button>
+              </VStack>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </Flex>
     </Box>
   );

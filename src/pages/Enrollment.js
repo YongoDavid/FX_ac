@@ -19,7 +19,7 @@ import {
   useColorModeValue,
   Badge,
 } from '@chakra-ui/react';
-import { User, Mail, BookOpen, CreditCard, AlertCircle } from 'lucide-react';
+import { User, Mail, AlertCircle } from 'lucide-react';
 
 function Enrollment() {
   const [formData, setFormData] = useState({
@@ -34,6 +34,11 @@ function Enrollment() {
   const cardBg = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.600', 'gray.300');
   const headingColor = useColorModeValue('gray.800', 'white');
+
+  const bgGradient = useColorModeValue(
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
+  );
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,7 +62,7 @@ function Enrollment() {
       <Container maxW="1200px">
         <VStack spacing={12} align="stretch">
           <Box textAlign="center">
-            <Heading as="h1" size="2xl" color={headingColor} mb={4}>
+            <Heading as="h1" size="2xl" mb={4} bgGradient={bgGradient} bgClip="text">
               Enroll for Mentorship
             </Heading>
             <Text fontSize="xl" color={textColor}>

@@ -57,9 +57,10 @@ export default function FAQs() {
   const hoverBg = useColorModeValue('gray.100', 'gray.700');
   const inputBg = useColorModeValue('white', 'gray.700');
 
+
   const bgGradient = useColorModeValue(
-    'linear(to-r, blue.400, purple.500)',
-    'linear(to-r, blue.600, purple.700)'
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
   );
 
   return (
@@ -70,6 +71,7 @@ export default function FAQs() {
             <Heading as="h1" size="2xl" mb={4} bgGradient={bgGradient} bgClip="text">
               Frequently Asked Questions
             </Heading>
+            
             <Text fontSize="xl" color={textColor}>
               Get answers to common questions about our forex trading courses
             </Text>

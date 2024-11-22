@@ -7,13 +7,12 @@ import {
   SimpleGrid,
   Image,
   VStack,
-  HStack,
   Icon,
   useColorModeValue,
   Flex,
   Badge,
 } from '@chakra-ui/react';
-import { History, Users, Target, Award, ChevronRight } from 'lucide-react';
+import { History, Users, Target, Award } from 'lucide-react';
 import tradingIMAGE from '../assets/tradingIMAGE.jpg';
 
 const teamMembers = [

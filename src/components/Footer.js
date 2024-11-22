@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, SimpleGrid, VStack, Heading, Text, Link, Input, Button, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, SimpleGrid, VStack, Heading, Text, Link, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Instagram, Youtube, Twitter, Facebook, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 

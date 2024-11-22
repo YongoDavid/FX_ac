@@ -55,7 +55,7 @@ export default function LotSizeCalculator() {
   };
 
   return (
-    <Box minHeight="100vh" bg={bgColor} py={16} px={4}>
+    <Box minHeight="100vh" bg={bgColor} py={8} px={4}>
       <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1300px" margin="auto">
         <GridItem>
           <VStack spacing={8} align="stretch">

@@ -13,7 +13,6 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  Select,
   Stat,
   StatLabel,
   StatNumber,
@@ -22,50 +21,58 @@ import {
   Grid,
   GridItem,
   Divider,
+  Progress,
 } from '@chakra-ui/react';
-import { DollarSign, BarChart2, CreditCard } from 'lucide-react';
+import { TrendingUp, TrendingDown, BarChart2 } from 'lucide-react';
 
-// Mock data for currency pairs and their pip values
-const currencyPairs = [
-  { pair: 'EUR/USD', pipValue: 0.0001 },
-  { pair: 'GBP/USD', pipValue: 0.0001 },
-  { pair: 'USD/JPY', pipValue: 0.01 },
-  { pair: 'AUD/USD', pipValue: 0.0001 },
-];
-
-export default function PipsCalculator() {
-  const [lotSize, setLotSize] = useState(1);
-  const [selectedPair, setSelectedPair] = useState(currencyPairs[0]);
-  const [pipValue, setPipValue] = useState(0);
-  const [accountBalance, setAccountBalance] = useState(10000);
+export default function RiskRewardCalculator() {
+  const [entryPrice, setEntryPrice] = useState(100);
+  const [stopLoss, setStopLoss] = useState(95);
+  const [takeProfit, setTakeProfit] = useState(110);
+  const [ratio, setRatio] = useState(0);
 
   const bgColor = useColorModeValue('gray.50', 'gray.900');
   const cardBg = useColorModeValue('white', 'gray.800');
   const textColor = useColorModeValue('gray.800', 'gray.100');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const statBg = useColorModeValue('teal.50', 'teal.900');
-
+  
   const bgGradient = useColorModeValue(
     'linear(to-r, teal.500, blue.500)',
     'linear(to-r, teal.200, blue.200)'
   );
 
   useEffect(() => {
-    calculatePipValue();
-  }, [lotSize, selectedPair, accountBalance]);
+    calculateRiskReward();
+  }, [entryPrice, stopLoss, takeProfit]);
 
-  const calculatePipValue = () => {
-    const calculatedPipValue = (lotSize * 100000 * selectedPair.pipValue).toFixed(2);
-    setPipValue(Number(calculatedPipValue));
+  const calculateRiskReward = () => {
+    const risk = Math.abs(entryPrice - stopLoss);
+    const reward = Math.abs(takeProfit - entryPrice);
+    const calculatedRatio = reward / risk;
+    setRatio(Number(calculatedRatio.toFixed(2)));
   };
+
+  const getRatioColor = (ratio) => {
+    if (ratio >= 2) return "green.500";
+    if (ratio >= 1) return "yellow.500";
+    return "red.500";
+  };
+
+  const getRatioText = (ratio) => {
+    if (ratio >= 2) return "Excellent";
+    if (ratio >= 1) return "Good";
+    return "Poor";
+  };
+
   return (
-    <Box minHeight="100vh" bg={bgColor} py={8} px={4}>
+    <Box minHeight="100vh" bg={bgColor} py={12} px={4}>
       {/* <Divider my={8} borderColor={borderColor} borderWidth={2} /> */}
-      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1300px" margin="auto">
+      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1200px" margin="auto">
         <GridItem>
           <VStack spacing={8} align="stretch">
             <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
-              Pips Calculator
+              Risk/Reward Ratio Calculator
             </Heading>
             <Box
               bg={cardBg}
@@ -77,13 +84,12 @@ export default function PipsCalculator() {
             >
               <VStack spacing={6}>
                 <FormControl>
-                  <FormLabel htmlFor="lotSize">Lot Size</FormLabel>
+                  <FormLabel htmlFor="entryPrice">Entry Price</FormLabel>
                   <NumberInput
-                    id="lotSize"
-                    value={lotSize}
-                    onChange={(valueString) => setLotSize(Number(valueString))}
-                    min={0.01}
-                    step={0.01}
+                    id="entryPrice"
+                    value={entryPrice}
+                    onChange={(valueString) => setEntryPrice(Number(valueString))}
+                    min={0}
                     precision={2}
                   >
                     <NumberInputField />
@@ -95,12 +101,13 @@ export default function PipsCalculator() {
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel htmlFor="accountBalance">Account Balance</FormLabel>
+                  <FormLabel htmlFor="stopLoss">Stop Loss</FormLabel>
                   <NumberInput
-                    id="accountBalance"
-                    value={accountBalance}
-                    onChange={(valueString) => setAccountBalance(Number(valueString))}
+                    id="stopLoss"
+                    value={stopLoss}
+                    onChange={(valueString) => setStopLoss(Number(valueString))}
                     min={0}
+                    precision={2}
                   >
                     <NumberInputField />
                     <NumberInputStepper>
@@ -111,18 +118,20 @@ export default function PipsCalculator() {
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel htmlFor="currencyPair">Currency Pair</FormLabel>
-                  <Select
-                    id="currencyPair"
-                    value={selectedPair.pair}
-                    onChange={(e) => setSelectedPair(currencyPairs.find(pair => pair.pair === e.target.value) || currencyPairs[0])}
+                  <FormLabel htmlFor="takeProfit">Take Profit</FormLabel>
+                  <NumberInput
+                    id="takeProfit"
+                    value={takeProfit}
+                    onChange={(valueString) => setTakeProfit(Number(valueString))}
+                    min={0}
+                    precision={2}
                   >
-                    {currencyPairs.map((pair) => (
-                      <option key={pair.pair} value={pair.pair}>
-                        {pair.pair}
-                      </option>
-                    ))}
-                  </Select>
+                    <NumberInputField />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper />
+                      <NumberDecrementStepper />
+                    </NumberInputStepper>
+                  </NumberInput>
                 </FormControl>
 
                 <Stat
@@ -132,11 +141,19 @@ export default function PipsCalculator() {
                   borderWidth={1}
                   borderColor={borderColor}
                 >
-                  <StatLabel fontSize="lg">Pip Value</StatLabel>
-                  <StatNumber fontSize="3xl">${pipValue}</StatNumber>
-                  <StatHelpText>
-                    Per pip movement ({((pipValue / accountBalance) * 100).toFixed(4)}% of account)
+                  <StatLabel fontSize="lg">Risk/Reward Ratio</StatLabel>
+                  <StatNumber fontSize="3xl">1:{ratio}</StatNumber>
+                  <StatHelpText color={getRatioColor(ratio)}>
+                    {getRatioText(ratio)}
                   </StatHelpText>
+                  <Progress
+                    value={ratio * 50}
+                    max={100}
+                    colorScheme={getRatioColor(ratio).split('.')[0]}
+                    borderRadius="full"
+                    height="8px"
+                    mt={2}
+                  />
                 </Stat>
               </VStack>
             </Box>
@@ -158,25 +175,25 @@ export default function PipsCalculator() {
             >
               <VStack spacing={6} align="start">
                 <Text fontSize="lg" fontWeight="bold" color={textColor}>
-                  Follow these steps to calculate pip value:
+                  Follow these steps to calculate your risk/reward ratio:
                 </Text>
                 <Flex align="center">
-                  <Icon as={CreditCard} mr={4} color="green.500" boxSize={6} />
-                  <Text>Enter your lot size</Text>
+                  <Icon as={BarChart2} mr={4} color="purple.500" boxSize={6} />
+                  <Text>Enter your entry price</Text>
                 </Flex>
                 <Flex align="center">
-                  <Icon as={BarChart2} mr={4} color="blue.500" boxSize={6} />
-                  <Text>Select the currency pair you're trading</Text>
+                  <Icon as={TrendingDown} mr={4} color="red.500" boxSize={6} />
+                  <Text>Set your stop loss price</Text>
                 </Flex>
                 <Flex align="center">
-                  <Icon as={DollarSign} mr={4} color="red.500" boxSize={6} />
-                  <Text>View the calculated pip value</Text>
+                  <Icon as={TrendingUp} mr={4} color="green.500" boxSize={6} />
+                  <Text>Define your take profit price</Text>
                 </Flex>
                 <Text fontSize="md" color={textColor}>
-                  The calculator will automatically compute the monetary value of a single pip based on your lot size and the selected currency pair. This helps you understand the potential profit or loss for each pip movement in your trade.
+                  The calculator will automatically compute the risk/reward ratio based on these parameters. A higher ratio indicates a more favorable trade setup.
                 </Text>
                 <Text fontSize="sm" fontStyle="italic" color={textColor}>
-                  Note: Pip values may vary slightly depending on the current exchange rates. Always verify with your broker for the most accurate information.
+                  Tip: Aim for a risk/reward ratio of at least 1:2 for better long-term profitability.
                 </Text>
               </VStack>
             </Box>

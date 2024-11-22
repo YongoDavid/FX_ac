@@ -85,3 +85,5 @@ continue from the landing page and home page , on work machine.
 UI changes from work home machine.
 
 there are some warnings for LostSizeCalcultor i still need to resolve.
+
+COME BACK AND WORK ON THE NAVBAR FOR MOBILE SCREENS

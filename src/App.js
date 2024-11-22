@@ -2,6 +2,7 @@
 import React from 'react';
 import { ChakraProvider, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Layout from './components/Layout';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -18,14 +19,16 @@ function App() {
         <Box minHeight="100vh" display="flex" flexDirection="column">
           <Header />
           <Box flex="1">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/courses" component={Courses} />
-              <Route path="/about" component={About} />
-              <Route path="/blog" component={Blog} />
-              <Route path="/enrollment" component={Enrollment} />
-              <Route path="/faqs" component={FAQs} />
-            </Switch>
+            <Layout>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/courses" component={Courses} />
+                <Route path="/about" component={About} />
+                <Route path="/blog" component={Blog} />
+                <Route path="/enrollment" component={Enrollment} />
+                <Route path="/faqs" component={FAQs} />
+              </Switch>
+            </Layout>
           </Box>
           <Footer />
         </Box>

@@ -1,65 +1,91 @@
 import React from 'react';
-import { Box, Flex, Link, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, SimpleGrid, VStack, Heading, Text, Link, Input, Button, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Instagram, Youtube } from 'lucide-react';
+import { Instagram, Youtube, Twitter, Facebook, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 function Footer() {
   const bgColor = useColorModeValue('gray.900', 'gray.800');
   const textColor = useColorModeValue('gray.100', 'gray.300');
+  const headingColor = useColorModeValue('white', 'gray.100');
+  const iconColor = useColorModeValue('teal.400', 'teal.300');
+
+  const socialLinks = [
+    { icon: Instagram, href: 'https://instagram.com/forexacademy' },
+    { icon: Youtube, href: 'https://www.youtube.com/@noelreys' },
+    { icon: Twitter, href: 'https://twitter.com/forexacademy' },
+    { icon: Facebook, href: 'https://facebook.com/forexacademy' },
+  ];
+
+  const quickLinks = ['Courses', 'About Us', 'Blog', 'FAQs', 'Terms of Service', 'Privacy Policy'];
 
   return (
-    <Box as="footer" bg={bgColor} color={textColor} py={12}>
-      <Flex maxW="1200px" mx="auto" flexWrap="wrap" justifyContent="space-between">
-        <VStack align="start" mb={8} spacing={3}>
-          <Text fontWeight="bold" fontSize="xl">Forex Academy</Text>
-          <Text>Your journey to forex mastery starts here.</Text>
-        </VStack>
-        <VStack align="start" mb={8} spacing={3}>
-          <Text fontWeight="bold" fontSize="lg">Quick Links</Text>
-          {['Courses', 'About Us', 'Blog', 'FAQs'].map((item) => (
-            <Link
-              key={item}
-              as={RouterLink}
-              to={`/${item.toLowerCase().replace(' ', '-')}`}
-              _hover={{
-                color: 'teal.400',
-                textDecoration: 'none',
-              }}
-              transition="color 0.3s"
-            >
-              {item}
-            </Link>
-          ))}
-        </VStack>
-        <VStack align="start" mb={8} spacing={3}>
-          <Text fontWeight="bold" fontSize="lg">Contact Us</Text>
-          <Text>Email: info@forexacademy.com</Text>
-          <Text>Phone: +234 (123) 456-7890</Text>
-          <Flex mt={2} align="center" gap={4}>
-            <Link href="/" isExternal>
-              <Box
-                as={Instagram}
-                size={24}
-                color="teal.400"
-                _hover={{ color: 'teal.300' }}
-                transition="color 0.3s"
-              />
-            </Link>
-            <Link href="https://www.youtube.com/@noelreys" isExternal>
-              <Box
-                as={Youtube}
-                size={28}
-                color="teal.400"
-                _hover={{ color: 'teal.300' }}
-                transition="color 0.3s"
-              />
-            </Link>
-          </Flex>
-        </VStack>
-      </Flex>
-      <Text textAlign="center" mt={8} fontSize="sm" color="gray.500">
-        © {new Date().getFullYear()} Forex Academy. All rights reserved.
-      </Text>
+    <Box as="footer" bg={bgColor} color={textColor} py={16}>
+      <Container maxW="1200px">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} mb={8}>
+          <VStack align="start" spacing={4}>
+            <Heading as="h4" size="md" color={headingColor}>Forex Academy</Heading>
+            <Text>Your journey to forex mastery starts here.</Text>
+            <Flex mt={4}>
+              {socialLinks.map((social, index) => (
+                <Link key={index} href={social.href} isExternal mr={3}>
+                  <Icon
+                    as={social.icon}
+                    boxSize={6}
+                    color={iconColor}
+                    _hover={{ color: 'teal.300', transform: 'scale(1.1)' }}
+                    transition="all 0.3s"
+                  />
+                </Link>
+              ))}
+            </Flex>
+          </VStack>
+
+          <VStack align="start" spacing={4}>
+            <Heading as="h4" size="md" color={headingColor}>Quick Links</Heading>
+            {quickLinks.map((item) => (
+              <Link
+                key={item}
+                as={RouterLink}
+                to={`/${item.toLowerCase().replace(' ', '-')}`}
+                _hover={{
+                  color: 'teal.400',
+                  textDecoration: 'none',
+                  transform: 'translateX(5px)',
+                }}
+                transition="all 0.3s"
+                display="flex"
+                alignItems="center"
+              >
+                <Icon as={ArrowRight} mr={2} boxSize={4} />
+                {item}
+              </Link>
+            ))}
+          </VStack>
+
+          <VStack align="start" spacing={4}>
+            <Heading as="h4" size="md" color={headingColor}>Contact Us</Heading>
+            <Flex align="center">
+              <Icon as={Mail} mr={2} color={iconColor} />
+              <Text>info@forexacademy.com</Text>
+            </Flex>
+            <Flex align="center">
+              <Icon as={Phone} mr={2} color={iconColor} />
+              <Text>+234 (123) 456-7890</Text>
+            </Flex>
+            <Flex align="center">
+              <Icon as={MapPin} mr={2} color={iconColor} />
+              <Text>123 Trading Street, Forex City</Text>
+            </Flex>
+          </VStack>
+
+        </SimpleGrid>
+
+        <Box borderTopWidth={1} borderColor="gray.700" pt={8}>
+          <Text textAlign="center" fontSize="sm">
+            © {new Date().getFullYear()} Forex Academy. All rights reserved.
+          </Text>
+        </Box>
+      </Container>
     </Box>
   );
 }

@@ -17,12 +17,12 @@ function Blog() {
   return (
     <Box>
       <Container maxW="1200px" py={16}>
-        <Heading as="h1" size="2xl" mb={8}>
+        {/* <Heading as="h1" size="2xl" mb={8}>
           Resources
-        </Heading>
+        </Heading> */}
         
         {/* Educational Articles */}
-        <Box mb={16}>
+        {/* <Box mb={16}>
           <Heading as="h2" size="xl" mb={8}>
             Latest Articles
           </Heading>
@@ -41,10 +41,10 @@ function Blog() {
               </Box>
             ))}
           </SimpleGrid>
-        </Box>
+        </Box> */}
 
         {/* Webinars & Events */}
-        <Box mb={16}>
+        {/* <Box mb={16}>
           <Heading as="h2" size="xl" mb={8}>
             Upcoming Webinars
           </Heading>
@@ -59,10 +59,10 @@ function Blog() {
               </Box>
             ))}
           </SimpleGrid>
-        </Box>
+        </Box> */}
 
         {/* Ebooks */}
-        <Box mb={16}>
+        {/* <Box mb={16}>
           <Heading as="h2" size="xl" mb={8}>
             Free Ebooks
           </Heading>
@@ -77,7 +77,7 @@ function Blog() {
               </VStack>
             ))}
           </SimpleGrid>
-        </Box>
+        </Box> */}
 
         {/* Forex Glossary
         <Box>

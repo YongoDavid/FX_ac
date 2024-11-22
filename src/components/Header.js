@@ -55,7 +55,7 @@ export default function Header() {
             }}
             transition="color 0.3s"
           >
-            Forex Academy
+            Noel
           </Link>
         </Flex>
         
@@ -63,7 +63,7 @@ export default function Header() {
           {[
             { name: 'Courses', icon: BookOpen, link: '/courses' },
             { name: 'About', icon: Info, link: '/about' },
-            { name: 'Tools', icon: Settings, link: '/tradingcalculators' },
+            { name: 'Tools', icon: Settings, link: '/tools' },
             { name: 'FAQs', icon: HelpCircle, link: '/faqs' },
           ].map((item) => (
             <Link

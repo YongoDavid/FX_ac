@@ -6,7 +6,6 @@ import {
   Text,
   FormControl,
   FormLabel,
-  Button,
   useColorModeValue,
   Flex,
   NumberInput,
@@ -40,6 +39,11 @@ export default function LotSizeCalculator() {
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const statBg = useColorModeValue('teal.50', 'teal.900');
 
+  const bgGradient = useColorModeValue(
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
+  );
+
   useEffect(() => {
     calculateLotSize();
   }, [accountBalance, riskPercentage, stopLoss]);
@@ -52,10 +56,10 @@ export default function LotSizeCalculator() {
 
   return (
     <Box minHeight="100vh" bg={bgColor} py={16} px={4}>
-      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1200px" margin="auto">
+      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1300px" margin="auto">
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center">
+            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
               Lot Size Calculator
             </Heading>
             <Box
@@ -152,7 +156,7 @@ export default function LotSizeCalculator() {
 
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center">
+            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
               How It Works
             </Heading>
             <Box

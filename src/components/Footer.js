@@ -16,7 +16,7 @@ function Footer() {
     { icon: Facebook, href: 'https://facebook.com/forexacademy' },
   ];
 
-  const quickLinks = ['Courses', 'About Us', 'Blog', 'FAQs', 'Terms of Service', 'Privacy Policy'];
+  const quickLinks = ['Courses', 'About', 'Tools', 'FAQs', 'Terms of Service', 'Privacy Policy'];
 
   return (
     <Box as="footer" bg={bgColor} color={textColor} py={16}>
@@ -74,7 +74,7 @@ function Footer() {
             </Flex>
             <Flex align="center">
               <Icon as={MapPin} mr={2} color={iconColor} />
-              <Text>123 Trading Street, Forex City</Text>
+              <Text>123 Trading Street, Forex City Nigeria</Text>
             </Flex>
           </VStack>
 

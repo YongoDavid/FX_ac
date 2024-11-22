@@ -83,3 +83,5 @@ i am yet to modify the comments section , i need to install (chakra snippet add 
 continue from the landing page and home page , on work machine.
 
 UI changes from work home machine.
+
+there are some warnings for LostSizeCalcultor i still need to resolve.

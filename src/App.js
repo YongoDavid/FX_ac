@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import About from './pages/About';
-import TradingCalculators from './pages/TradingCalculators';
+import Tools from './pages/Tools';
 import Enrollment from './pages/Enrollment';
 import FAQs from './pages/FAQs';
 
@@ -24,7 +24,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/courses" component={Courses} />
                 <Route path="/about" component={About} />
-                <Route path="/tradingcalculators" component={TradingCalculators} />
+                <Route path="/tools" component={Tools} />
                 <Route path="/enrollment" component={Enrollment} />
                 <Route path="/faqs" component={FAQs} />
               </Switch>

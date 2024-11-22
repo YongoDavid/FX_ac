@@ -45,6 +45,11 @@ export default function PipsCalculator() {
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const statBg = useColorModeValue('teal.50', 'teal.900');
 
+  const bgGradient = useColorModeValue(
+    'linear(to-r, teal.500, blue.500)',
+    'linear(to-r, teal.200, blue.200)'
+  );
+
   useEffect(() => {
     calculatePipValue();
   }, [lotSize, selectedPair, accountBalance]);
@@ -53,14 +58,13 @@ export default function PipsCalculator() {
     const calculatedPipValue = (lotSize * 100000 * selectedPair.pipValue).toFixed(2);
     setPipValue(Number(calculatedPipValue));
   };
-
   return (
     <Box minHeight="100vh" bg={bgColor} py={16} px={4}>
       <Divider my={8} borderColor={borderColor} borderWidth={2} />
-      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1200px" margin="auto">
+      <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1300px" margin="auto">
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center">
+            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
               Pips Calculator
             </Heading>
             <Box
@@ -141,7 +145,7 @@ export default function PipsCalculator() {
 
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center">
+            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
               How It Works
             </Heading>
             <Box

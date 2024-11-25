@@ -20,7 +20,7 @@ const pageVariants = {
 const pageTransition = {
   type: 'tween',
   ease: 'anticipate',
-  duration: 0.5,
+  duration: 0.3,
 };
 
 export default function PageTransition({ children }) {
@@ -32,7 +32,7 @@ export default function PageTransition({ children }) {
         key={location.pathname}
         initial="initial"
         animate="in"
-        exit="out"
+        // exit="out"
         variants={pageVariants}
         transition={pageTransition}
       >

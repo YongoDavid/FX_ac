@@ -89,12 +89,11 @@ there are some warnings for LostSizeCalcultor i still need to resolve.
 COME BACK AND WORK ON THE NAVBAR FOR MOBILE SCREENS
 
 New corrections i need to make to the website :
-increase the hamburger menu size
-i need smooth trasitions to all the pages.
-for the enroll place ,the plan should automatically show based thhe plan selected.
-Add a section for including bonus on promo code
-chill in the contact info in footer.
-remove T&C and PP from footer area.
+increase the hamburger menu size (Done)
+i need smooth trasitions to all the pages.(Did not like it)
+for the enroll place ,the price should automatically show based the plan selected.(Done)
+Add a section for including bonus on promo code(Removed)
+remove T&C and PP from footer area.(leaving that for now)
 Add links to the videos to watch.
 Make sure that all pages start from to top, when they are loaded.
 Learn about the calculators i put in place and how they should work.

@@ -123,10 +123,10 @@ function Enrollment() {
                       onChange={handleChange} 
                       placeholder="Select a plan"
                     >
-                      <option value="Monthly">Monthly Plan</option>
-                      <option value="3 Months">3 Months Plan</option>
-                      <option value="6 Months">6 Months Plan</option>
-                      <option value="Yearly">Yearly Plan</option>
+                      <option value="Monthly">Monthly Plan ($99)</option>
+                      <option value="3 Months">3 Months Plan ($249)</option>
+                      <option value="6 Months">6 Months Plan ($449)</option>
+                      <option value="Yearly">Yearly Plan ($799)</option>
                     </Select>
                   </InputGroup>
                 </FormControl>
@@ -144,7 +144,7 @@ function Enrollment() {
                       placeholder="Select payment method"
                     >
                       <option value="credit-card">Credit Card</option>
-                      <option value="paypal">PayPal</option>
+                      <option value="paypal">Bank Trasnfer</option>
                       <option value="crypto">Cryptocurrency</option>
                     </Select>
                   </InputGroup>
@@ -172,7 +172,7 @@ function Enrollment() {
                 </VStack>
               </Box>
 
-              <Box bg={cardBg} p={6} borderRadius="lg" boxShadow="md">
+              {/* <Box bg={cardBg} p={6} borderRadius="lg" boxShadow="md">
                 <Flex align="center" mb={4}>
                   <Icon as={AlertCircle} color="green.500" mr={2} />
                   <Heading as="h2" size="md" color={headingColor}>
@@ -193,7 +193,7 @@ function Enrollment() {
                     <Text color={textColor}>Use code EARLYBIRD</Text>
                   </Flex>
                 </VStack>
-              </Box>
+              </Box> */}
             </Box>
           </SimpleGrid>
         </VStack>

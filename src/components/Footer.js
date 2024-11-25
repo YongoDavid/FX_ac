@@ -20,7 +20,7 @@ function Footer() {
 
   return (
     <Box as="footer" bg={bgColor} color={textColor} py={16}>
-      <Container maxW="1200px">
+      <Container maxW="1300px">
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} mb={8}>
           <VStack align="start" spacing={4}>
             <Heading as="h4" size="md" color={headingColor}>Forex Academy</Heading>

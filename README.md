@@ -94,7 +94,7 @@ i need smooth trasitions to all the pages.(Did not like it)
 for the enroll place ,the price should automatically show based the plan selected.(Done)
 Add a section for including bonus on promo code(Removed)
 remove T&C and PP from footer area.(leaving that for now)
-Add links to the videos to watch.
-Make sure that all pages start from to top, when they are loaded.
+Add links to the videos to watch and open the vidoes on youtube(Done).
+Make sure that all pages start from to top, when they are loaded(Done).
 Learn about the calculators i put in place and how they should work.
 Move to mobile design 

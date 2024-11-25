@@ -9,7 +9,7 @@ const videos = [
     duration: '15:30',
     views: '10K',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    url: 'https://www.youtube.com/watch?v=ulI4e5fpaEE',
+    url: 'https://www.youtube.com/watch?v=bYCTcWCIzlU',
   },
   {
     title: 'Mastering Support and Resistance Levels',
@@ -133,8 +133,8 @@ export default function TradingVideosSection() {
                   </Flex>
                 </Flex>
                 <Button
-                  as={Link}
-                  to={video.url}
+                  as="a"
+                  href={video.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   colorScheme="blue"

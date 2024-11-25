@@ -134,9 +134,9 @@ export default function PipsCalculator() {
                 >
                   <StatLabel fontSize="lg">Pip Value</StatLabel>
                   <StatNumber fontSize="3xl">${pipValue}</StatNumber>
-                  <StatHelpText>
+                  {/* <StatHelpText>
                     Per pip movement ({((pipValue / accountBalance) * 100).toFixed(4)}% of account)
-                  </StatHelpText>
+                  </StatHelpText> */}
                 </Stat>
               </VStack>
             </Box>

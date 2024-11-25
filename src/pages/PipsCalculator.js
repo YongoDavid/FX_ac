@@ -21,7 +21,7 @@ import {
   Icon,
   Grid,
   GridItem,
-  Divider,
+  // Divider,
 } from '@chakra-ui/react';
 import { DollarSign, BarChart2, CreditCard } from 'lucide-react';
 

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import PageTransition from './components/PageTransition';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import About from './pages/About';
@@ -20,14 +21,16 @@ function App() {
           <Header />
           <Box flex="1">
             <Layout>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/courses" component={Courses} />
-                <Route path="/about" component={About} />
-                <Route path="/tools" component={Tools} />
-                <Route path="/enrollment" component={Enrollment} />
-                <Route path="/faqs" component={FAQs} />
-              </Switch>
+              <PageTransition>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/courses" component={Courses} />
+                  <Route path="/about" component={About} />
+                  <Route path="/tools" component={Tools} />
+                  <Route path="/enrollment" component={Enrollment} />
+                  <Route path="/faqs" component={FAQs} />
+                </Switch>
+              </PageTransition>
             </Layout>
           </Box>
           <Footer />

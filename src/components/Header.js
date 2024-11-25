@@ -18,13 +18,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import {
-  BookOpen,
-  Info,
-  HelpCircle,
-  Settings,
-  Menu,
-} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { BookOpen, Info, HelpCircle, Settings, Menu } from 'lucide-react';
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -114,55 +109,62 @@ export default function Header() {
 
         <IconButton
           aria-label="Open menu"
-          icon={<Icon as={Menu} />}
+          icon={<Icon as={Menu} boxSize={6} />}
           variant="ghost"
           color={textColor}
           display={{ base: 'flex', md: 'none' }}
           onClick={onOpen}
+          size="lg"
         />
 
-        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose} motionPreset="slideInRight">
           <DrawerOverlay />
           <DrawerContent bg={bgColor} color={textColor}>
             <DrawerCloseButton />
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
-              <VStack spacing={4} align="stretch">
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.name}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <VStack spacing={4} align="stretch">
+                  {menuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      as={RouterLink}
+                      to={item.link}
+                      fontSize="lg"
+                      fontWeight="medium"
+                      _hover={{
+                        textDecoration: 'none',
+                        color: hoverColor,
+                      }}
+                      transition="color 0.3s"
+                      onClick={onClose}
+                    >
+                      <Flex align="center">
+                        <Icon as={item.icon} mr={2} />
+                        <Text>{item.name}</Text>
+                      </Flex>
+                    </Link>
+                  ))}
+                  <Button
                     as={RouterLink}
-                    to={item.link}
-                    fontSize="lg"
-                    fontWeight="medium"
+                    to="/enrollment"
+                    colorScheme="teal"
+                    variant="outline"
                     _hover={{
-                      textDecoration: 'none',
-                      color: hoverColor,
+                      bg: 'teal.500',
+                      color: 'white',
                     }}
-                    transition="color 0.3s"
+                    transition="all 0.3s"
                     onClick={onClose}
                   >
-                    <Flex align="center">
-                      <Icon as={item.icon} mr={2} />
-                      <Text>{item.name}</Text>
-                    </Flex>
-                  </Link>
-                ))}
-                <Button
-                  as={RouterLink}
-                  to="/enrollment"
-                  colorScheme="teal"
-                  variant="outline"
-                  _hover={{
-                    bg: 'teal.500',
-                    color: 'white',
-                  }}
-                  transition="all 0.3s"
-                  onClick={onClose}
-                >
-                  Enroll Now
-                </Button>
-              </VStack>
+                    Enroll Now
+                  </Button>
+                </VStack>
+              </motion.div>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

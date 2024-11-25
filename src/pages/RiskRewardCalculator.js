@@ -20,7 +20,7 @@ import {
   Icon,
   Grid,
   GridItem,
-  Divider,
+  // Divider,
   Progress,
 } from '@chakra-ui/react';
 import { TrendingUp, TrendingDown, BarChart2 } from 'lucide-react';

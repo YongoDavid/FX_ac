@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <Box>
       <Header />
-      <Box as="main" pt="30px"> {/* Add padding-top equal to the header height */}
+      <Box as="main" pt="30px" minHeight="calc(100vh - 64px)"> {/* Add padding-top equal to the header height */}
         {children}
       </Box>
     </Box>

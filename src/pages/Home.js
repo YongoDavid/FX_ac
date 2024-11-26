@@ -53,6 +53,8 @@ function Home() {
               fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
               fontWeight="bold"
               mb={6}
+              // made this change 
+              textAlign={{base: 'center' , md:'start'}}
               lineHeight="1.2"
               textShadow="2px 2px 4px rgba(0,0,0,0.4)"
             >
@@ -62,26 +64,29 @@ function Home() {
               fontSize={{ base: 'xl', md: '2xl' }}
               mb={8}
               textShadow="1px 1px 2px rgba(0,0,0,0.2)"
+              textAlign={{base: 'center' , md:'start'}}
             >
               Expert-led courses, real-time analysis, and a supportive community to guide your forex journey in the decentralized future.
             </Text>
-            <Button
-              as={RouterLink}
-              to="/enrollment"
-              size="lg"
-              height="60px"
-              px={8}
-              fontSize="xl"
-              colorScheme="teal"
-              rightIcon={<ChevronRight size={24} />}
+          <Button
+            as={RouterLink}
+            to="/enrollment"
+            size={{ base: "md", md: "lg" }}
+            height={{ base: "50px", md: "60px" }}
+            px={{ base: 6, md: 8 }}
+            fontSize={{ base: "lg", md: "xl" }}
+            colorScheme="teal"
+            rightIcon={<ChevronRight size={20} />}
               _hover={{
-                transform: 'translateY(-2px)',
-                boxShadow: 'xl',
-              }}
-              transition="all 0.3s"
-            >
-              Start Your Forex Journey
-            </Button>
+            transform: "translateY(-2px)",
+            boxShadow: "xl",
+            }}
+            transition="all 0.3s"
+            mx={{ base: "auto", md: 0 }}
+            display={{ base: "flex", md: "inline-flex" }}
+          >
+          Start Your Forex Journey
+          </Button>
           </Box>
           <Box
             flex={1}
@@ -113,8 +118,9 @@ function Home() {
               borderRadius="full"
               p={2}
               animation={`${pulse} 2s infinite`}
+              display={{ base: "none", md: "block" }}
             >
-              <TrendingUp size={40} color="white" />
+              <TrendingUp size={40}  color="white" />
             </Box>
             <Box
               position="absolute"
@@ -125,6 +131,7 @@ function Home() {
               borderRadius="full"
               p={2}
               animation={`${pulse} 2s infinite 1s`}
+              display={{ base: "none", md: "block" }}
             >
                <TrendingUp size={40} color="white" />
             </Box>
@@ -138,6 +145,7 @@ function Home() {
         transform="translate(-50%, -50%)"
         opacity={0.05}
         zIndex={0}
+        display={{ base: "none", md: "block" }}
       >
         <Flex>
           <BarChart2 size={700} />

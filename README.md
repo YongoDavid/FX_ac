@@ -97,4 +97,7 @@ remove T&C and PP from footer area.(leaving that for now)
 Add links to the videos to watch and open the vidoes on youtube(Done).
 Make sure that all pages start from to top, when they are loaded(Done).
 Learn about the calculators i put in place and how they should work.
+
 Move to mobile design 
+Made improvement on the Header / Navbar.
+Made improvement on the Footer.

@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
           <Flex
             position="absolute"
             width="200%"
-            animation={`${slide} 40s linear infinite`}
+            animation={`${slide} 60s linear infinite`}
           >
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <Box

@@ -50,7 +50,7 @@ export default function Courses() {
 
   return (
     <Box bg={bgColor} minHeight="100vh">
-      <Container maxW="1200px" py={16}>
+      <Container maxW="1300px" py={16}>
         <VStack spacing={8} align="stretch">
           <Heading as="h1" size="2xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
             Explore Our Forex Courses

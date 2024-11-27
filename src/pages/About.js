@@ -12,7 +12,6 @@ import {
   Flex,
   Badge,
   Stack,
-  Divider,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { History, Users, Target, Award } from 'lucide-react';
@@ -45,10 +44,10 @@ export default function About() {
 
   return (
     <Box bg={bgColor} minHeight="100vh">
-      <Container maxW="1200px" py={16}>
-        <VStack spacing={16} align="stretch">
+      <Container maxW="1300px" py={16}>
+        <VStack spacing={isMobile ? 8 : 16} align="stretch">
           <Box textAlign="center">
-            <Heading as="h1" size="2xl" mb={4} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading as="h1" size={isMobile ? "xl" : "2xl"} mb={4} bgGradient={bgGradient} bgClip="text">
               About Noel Reys Academy
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} color={textColor}>
@@ -59,7 +58,7 @@ export default function About() {
           {/* Academy History */}
           <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center">
             <Box flex={1}>
-              <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={4} bgGradient={bgGradient} bgClip="text">
+              <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
                 Our Story
               </Heading>
               <Text fontSize={{ base: "md", md: "lg" }} color={textColor} mb={4}>

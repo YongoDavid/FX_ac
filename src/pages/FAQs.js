@@ -17,6 +17,7 @@ import {
   useColorModeValue,
   Icon,
   Flex,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { HelpCircle, Send, ChevronDown, ChevronUp, Clock, Award, CreditCard, RefreshCcw } from 'lucide-react';
 
@@ -57,29 +58,30 @@ export default function FAQs() {
   const hoverBg = useColorModeValue('gray.100', 'gray.700');
   const inputBg = useColorModeValue('white', 'gray.700');
 
-
   const bgGradient = useColorModeValue(
     'linear(to-r, teal.500, blue.500)',
     'linear(to-r, teal.200, blue.200)'
   );
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <Box bg={bgColor} minHeight="100vh">
       <Container maxW="1300px" py={16}>
-        <VStack spacing={16} align="stretch">
+        <VStack spacing={isMobile ? 8 : 16} align="stretch">
           <Box textAlign="center">
-            <Heading as="h1" size="2xl" mb={4} bgGradient={bgGradient} bgClip="text">
+            <Heading as="h1" size={isMobile ? "xl" : "2xl"} mb={4} bgGradient={bgGradient} bgClip="text">
               Frequently Asked Questions
             </Heading>
             
-            <Text fontSize="xl" color={textColor}>
+            <Text fontSize={isMobile ? "lg" : "xl"} color={textColor}>
               Get answers to common questions about our forex trading courses
             </Text>
           </Box>
         
           <Accordion allowMultiple>
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} border="none" mb={4}>
+              <AccordionItem key={index} border="none" mb={isMobile ? 2 : 4}>
                 {({ isExpanded }) => (
                   <>
                     <h2>
@@ -87,17 +89,17 @@ export default function FAQs() {
                         bg={cardBg}
                         _hover={{ bg: hoverBg }}
                         borderRadius="md"
-                        p={4}
+                        p={isMobile ? 3 : 4}
                       >
                         <Flex flex="1" textAlign="left" alignItems="center">
-                          <Icon as={faq.icon} mr={4} color={accentColor} />
-                          <Text fontSize="lg" fontWeight="bold" color={headingColor}>{faq.question}</Text>
+                          <Icon as={faq.icon} mr={3} color={accentColor} boxSize={isMobile ? 4 : 5} />
+                          <Text fontSize={isMobile ? "md" : "lg"} fontWeight="bold" color={headingColor}>{faq.question}</Text>
                         </Flex>
                         <AccordionIcon as={isExpanded ? ChevronUp : ChevronDown} />
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4} pt={2} px={4}>
-                      <Text fontSize="md" color={textColor}>{faq.answer}</Text>
+                    <AccordionPanel pb={3} pt={2} px={3}>
+                      <Text fontSize={isMobile ? "sm" : "md"} color={textColor}>{faq.answer}</Text>
                     </AccordionPanel>
                   </>
                 )}
@@ -106,25 +108,25 @@ export default function FAQs() {
           </Accordion>
 
           <Box>
-            <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading as="h2" size={isMobile ? "lg" : "xl"} mb={isMobile ? 4 : 8} textAlign="center" bgGradient={bgGradient} bgClip="text">
               Contact Us
             </Heading>
             <Box
               bg={cardBg}
               borderRadius="lg"
-              p={8}
+              p={isMobile ? 4 : 8}
               boxShadow="xl"
             >
               <VStack as="form" spacing={4} align="stretch">
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
-                  <Input placeholder="Name" bg={inputBg} />
-                  <Input placeholder="Email" type="email" bg={inputBg} />
+                <SimpleGrid columns={1} spacing={4}>
+                  <Input placeholder="Name" bg={inputBg} size={isMobile ? "sm" : "md"} />
+                  <Input placeholder="Email" type="email" bg={inputBg} size={isMobile ? "sm" : "md"} />
                 </SimpleGrid>
-                <Textarea placeholder="Your Message" bg={inputBg} />
+                <Textarea placeholder="Your Message" bg={inputBg} size={isMobile ? "sm" : "md"} />
                 <Button
                   type="submit"
                   colorScheme="blue"
-                  size="lg"
+                  size={isMobile ? "md" : "lg"}
                   leftIcon={<Icon as={Send} />}
                   _hover={{
                     transform: 'translateY(-2px)',
@@ -142,3 +144,4 @@ export default function FAQs() {
     </Box>
   );
 }
+

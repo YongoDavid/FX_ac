@@ -1,4 +1,5 @@
-import { Check } from 'lucide-react'
+import React, { useState } from 'react';
+import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import {
   Box,
   Button,
@@ -12,10 +13,13 @@ import {
   Text,
   useColorModeValue,
   VStack,
+  HStack,
+  useBreakpointValue,
+  IconButton,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom';
 
-const PricingCard = ({ name, price, duration, description, features, isRecommended }) => {
+const PricingCard = ({ name, price, duration, description, features, isRecommended, isMobile }) => {
   const bgColor = useColorModeValue('white', 'gray.800')
   const borderColor = useColorModeValue(isRecommended ? 'blue.500' : 'gray.200', isRecommended ? 'blue.500' : 'gray.600')
 
@@ -24,12 +28,13 @@ const PricingCard = ({ name, price, duration, description, features, isRecommend
       borderWidth="1px"
       borderRadius="lg"
       borderColor={borderColor}
-      p={6}
+      p={isMobile ? 4 : 6}
       backgroundColor={bgColor}
       boxShadow={isRecommended ? 'lg' : 'base'}
       position="relative"
       transition="transform 0.3s"
-      _hover={{ transform: 'translateY(-5px)' ,borderColor:'blue.500' }}
+      _hover={{ transform: 'translateY(-5px)', borderColor: 'blue.500' }}
+      width={isMobile ? "100%" : "auto"}
     >
       {isRecommended && (
         <Text
@@ -48,17 +53,17 @@ const PricingCard = ({ name, price, duration, description, features, isRecommend
         </Text>
       )}
       <VStack spacing={3} align="stretch">
-        <Heading as="h3" size="lg">
+        <Heading as="h3" size={isMobile ? "md" : "lg"}>
           {name}
         </Heading>
-        <Text fontSize="sm" color="gray.500">
+        <Text fontSize={isMobile ? "xs" : "sm"} color="gray.500">
           {description}
         </Text>
         <Flex align="baseline" mt={2}>
-          <Text fontSize="5xl" fontWeight="bold">
+          <Text fontSize={isMobile ? "4xl" : "5xl"} fontWeight="bold">
             ${price}
           </Text>
-          <Text fontSize="xl" fontWeight="medium" color="gray.500">
+          <Text fontSize={isMobile ? "lg" : "xl"} fontWeight="medium" color="gray.500">
             /{duration}
           </Text>
         </Flex>
@@ -66,19 +71,19 @@ const PricingCard = ({ name, price, duration, description, features, isRecommend
           {features.map((feature, index) => (
             <ListItem key={index} display="flex" alignItems="center">
               <Icon as={Check} color="green.500" mr={2} />
-              <Text>{feature}</Text>
+              <Text fontSize={isMobile ? "sm" : "md"}>{feature}</Text>
             </ListItem>
           ))}
         </List>
         <Button
-            as={RouterLink}
-            to="/enrollment"
-            colorScheme={isRecommended ? 'blue' : 'blue'}
-            size="lg"
-            w="full"
-          >
-             Get Started
-          </Button>
+          as={RouterLink}
+          to="/enrollment"
+          colorScheme={isRecommended ? 'blue' : 'blue'}
+          size={isMobile ? "md" : "lg"}
+          w="full"
+        >
+          Get Started
+        </Button>
       </VStack>
     </Box>
   )
@@ -92,6 +97,10 @@ export default function PricingSection() {
     'linear(to-r, teal.500, blue.500)',
     'linear(to-r, teal.200, blue.200)'
   );
+
+  const isMobile = useBreakpointValue({ base: true, md: false })
+  const [currentPlanIndex, setCurrentPlanIndex] = useState(0)
+
   const plans = [
     {
       name: "Monthly",
@@ -147,28 +156,73 @@ export default function PricingSection() {
     },
   ]
 
+  const handlePrevPlan = () => {
+    setCurrentPlanIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : plans.length - 1))
+  }
+
+  const handleNextPlan = () => {
+    setCurrentPlanIndex((prevIndex) => (prevIndex < plans.length - 1 ? prevIndex + 1 : 0))
+  }
+
   return (
     <Box py={16} bg={bgColor}>
       <Container maxW="1300px">
         <VStack as="section" textAlign="center" mb={12}>
-            <Heading as="h2" size="xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
-                Mentorship Plans
-            </Heading>
+          <Heading as="h2" size="xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            Mentorship Plans
+          </Heading>
           <Text fontSize="xl" color={textColor}>
             Choose a plan that fits your trading journey
           </Text>
         </VStack>
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          spacing={{ base: 6, lg: 10 }}
-          justify="center"
-          align="stretch"
-        >
-          {plans.map((plan) => (
-            <PricingCard key={plan.name} {...plan} />
-          ))}
-        </Stack>
+        {isMobile ? (
+          <Box>
+            <Flex justifyContent="center" alignItems="center" mb={4}>
+              <IconButton
+                icon={<ChevronLeft />}
+                onClick={handlePrevPlan}
+                aria-label="Previous plan"
+                variant="ghost"
+              />
+              <Text fontWeight="bold" mx={4}>
+                {currentPlanIndex + 1} of {plans.length}
+              </Text>
+              <IconButton
+                icon={<ChevronRight />}
+                onClick={handleNextPlan}
+                aria-label="Next plan"
+                variant="ghost"
+              />
+            </Flex>
+            <PricingCard {...plans[currentPlanIndex]} isMobile={true} />
+            <HStack justifyContent="center" mt={4} spacing={2}>
+              {plans.map((_, index) => (
+                <Box
+                  key={index}
+                  w={2}
+                  h={2}
+                  borderRadius="full"
+                  bg={index === currentPlanIndex ? "blue.500" : "gray.300"}
+                  cursor="pointer"
+                  onClick={() => setCurrentPlanIndex(index)}
+                />
+              ))}
+            </HStack>
+          </Box>
+        ) : (
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            spacing={{ base: 6, lg: 10 }}
+            justify="center"
+            align="stretch"
+          >
+            {plans.map((plan) => (
+              <PricingCard key={plan.name} {...plan} isMobile={false} />
+            ))}
+          </Stack>
+        )}
       </Container>
     </Box>
   )
 }
+

@@ -24,6 +24,7 @@ import {
   Icon,
   Grid,
   GridItem,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { DollarSign, Percent, TrendingDown } from 'lucide-react';
 
@@ -44,6 +45,8 @@ export default function LotSizeCalculator() {
     'linear(to-r, teal.200, blue.200)'
   );
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   useEffect(() => {
     calculateLotSize();
   }, [accountBalance, riskPercentage, stopLoss]);
@@ -59,25 +62,26 @@ export default function LotSizeCalculator() {
       <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={8} maxWidth="1300px" margin="auto">
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading color={textColor} size={isMobile ? "lg" : "xl"} textAlign="center" bgGradient={bgGradient} bgClip="text">
               Lot Size Calculator
             </Heading>
             <Box
               bg={cardBg}
-              p={8}
+              p={isMobile ? 4 : 8}
               borderRadius="xl"
               boxShadow="xl"
               border="1px solid"
               borderColor={borderColor}
             >
-              <VStack spacing={6}>
+              <VStack spacing={isMobile ? 4 : 6}>
                 <FormControl>
-                  <FormLabel htmlFor="accountBalance">Account Balance</FormLabel>
+                  <FormLabel htmlFor="accountBalance" fontSize={isMobile ? "sm" : "md"}>Account Balance</FormLabel>
                   <NumberInput
                     id="accountBalance"
                     value={accountBalance}
                     onChange={(valueString) => setAccountBalance(Number(valueString))}
                     min={0}
+                    size={isMobile ? "sm" : "md"}
                   >
                     <NumberInputField />
                     <NumberInputStepper>
@@ -88,8 +92,8 @@ export default function LotSizeCalculator() {
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel htmlFor="riskPercentage">Risk Percentage</FormLabel>
-                  <Flex>
+                  <FormLabel htmlFor="riskPercentage" fontSize={isMobile ? "sm" : "md"}>Risk Percentage</FormLabel>
+                  <Flex direction={isMobile ? "column" : "row"}>
                     <NumberInput
                       id="riskPercentage"
                       value={riskPercentage}
@@ -97,8 +101,10 @@ export default function LotSizeCalculator() {
                       min={0}
                       max={100}
                       step={0.1}
-                      maxW="100px"
-                      mr={4}
+                      maxW={isMobile ? "100%" : "100px"}
+                      mr={isMobile ? 0 : 4}
+                      mb={isMobile ? 2 : 0}
+                      size={isMobile ? "sm" : "md"}
                     >
                       <NumberInputField />
                       <NumberInputStepper>
@@ -117,18 +123,19 @@ export default function LotSizeCalculator() {
                       <SliderTrack>
                         <SliderFilledTrack />
                       </SliderTrack>
-                      <SliderThumb fontSize="sm" boxSize="32px" children={riskPercentage} />
+                      <SliderThumb fontSize="sm" boxSize={isMobile ? "24px" : "32px"} children={riskPercentage} />
                     </Slider>
                   </Flex>
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel htmlFor="stopLoss">Stop Loss (in pips)</FormLabel>
+                  <FormLabel htmlFor="stopLoss" fontSize={isMobile ? "sm" : "md"}>Stop Loss (in pips)</FormLabel>
                   <NumberInput
                     id="stopLoss"
                     value={stopLoss}
                     onChange={(valueString) => setStopLoss(Number(valueString))}
                     min={1}
+                    size={isMobile ? "sm" : "md"}
                   >
                     <NumberInputField />
                     <NumberInputStepper>
@@ -145,9 +152,9 @@ export default function LotSizeCalculator() {
                   borderWidth={1}
                   borderColor={borderColor}
                 >
-                  <StatLabel fontSize="lg">Recommended Lot Size</StatLabel>
-                  <StatNumber fontSize="3xl">{lotSize}</StatNumber>
-                  <StatHelpText>Based on your inputs</StatHelpText>
+                  <StatLabel fontSize={isMobile ? "md" : "lg"}>Recommended Lot Size</StatLabel>
+                  <StatNumber fontSize={isMobile ? "2xl" : "3xl"}>{lotSize}</StatNumber>
+                  <StatHelpText fontSize={isMobile ? "xs" : "sm"}>Based on your inputs</StatHelpText>
                 </Stat>
               </VStack>
             </Box>
@@ -156,37 +163,37 @@ export default function LotSizeCalculator() {
 
         <GridItem>
           <VStack spacing={8} align="stretch">
-            <Heading color={textColor} size="xl" textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading color={textColor} size={isMobile ? "lg" : "xl"} textAlign="center" bgGradient={bgGradient} bgClip="text">
               How It Works
             </Heading>
             <Box
               bg={cardBg}
-              p={8}
+              p={isMobile ? 4 : 8}
               borderRadius="xl"
               boxShadow="md"
               border="1px solid"
               borderColor={borderColor}
             >
-              <VStack spacing={6} align="start">
-                <Text fontSize="lg" fontWeight="bold" color={textColor}>
+              <VStack spacing={isMobile ? 4 : 6} align="start">
+                <Text fontSize={isMobile ? "md" : "lg"} fontWeight="bold" color={textColor}>
                   Follow these steps to calculate your lot size:
                 </Text>
                 <Flex align="center">
-                  <Icon as={DollarSign} mr={4} color="green.500" boxSize={6} />
-                  <Text>Enter your account balance</Text>
+                  <Icon as={DollarSign} mr={4} color="green.500" boxSize={isMobile ? 5 : 6} />
+                  <Text fontSize={isMobile ? "sm" : "md"}>Enter your account balance</Text>
                 </Flex>
                 <Flex align="center">
-                  <Icon as={Percent} mr={4} color="blue.500" boxSize={6} />
-                  <Text>Set your risk percentage (usually 1-2% of your account)</Text>
+                  <Icon as={Percent} mr={4} color="blue.500" boxSize={isMobile ? 5 : 6} />
+                  <Text fontSize={isMobile ? "sm" : "md"}>Set your risk percentage (usually 1-2% of your account)</Text>
                 </Flex>
                 <Flex align="center">
-                  <Icon as={TrendingDown} mr={4} color="red.500" boxSize={6} />
-                  <Text>Define your stop loss in pips</Text>
+                  <Icon as={TrendingDown} mr={4} color="red.500" boxSize={isMobile ? 5 : 6} />
+                  <Text fontSize={isMobile ? "sm" : "md"}>Define your stop loss in pips</Text>
                 </Flex>
-                <Text fontSize="md" color={textColor}>
+                <Text fontSize={isMobile ? "sm" : "md"} color={textColor}>
                   The calculator will automatically compute the recommended lot size based on these parameters. This helps you manage risk and determine the appropriate position size for your trades.
                 </Text>
-                <Text fontSize="sm" fontStyle="italic" color={textColor}>
+                <Text fontSize={isMobile ? "xs" : "sm"} fontStyle="italic" color={textColor}>
                   Remember: Always use proper risk management in your trading strategy.
                 </Text>
               </VStack>
@@ -197,3 +204,4 @@ export default function LotSizeCalculator() {
     </Box>
   );
 }
+

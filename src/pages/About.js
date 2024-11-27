@@ -11,6 +11,9 @@ import {
   useColorModeValue,
   Flex,
   Badge,
+  Stack,
+  Divider,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { History, Users, Target, Award } from 'lucide-react';
 import tradingIMAGE from '../assets/tradingIMAGE.jpg';
@@ -38,6 +41,8 @@ export default function About() {
     'linear(to-r, teal.200, blue.200)'
   );
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <Box bg={bgColor} minHeight="100vh">
       <Container maxW="1200px" py={16}>
@@ -46,78 +51,85 @@ export default function About() {
             <Heading as="h1" size="2xl" mb={4} textAlign="center" bgGradient={bgGradient} bgClip="text">
               About Noel Reys Academy
             </Heading>
-            <Text fontSize="xl" color={textColor}>
+            <Text fontSize={{ base: "lg", md: "xl" }} color={textColor}>
               Empowering traders with knowledge and skills since 2022
             </Text>
           </Box>
           
           {/* Academy History */}
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-            <Box>
-              <Heading as="h2" size="xl" mb={4} bgGradient={bgGradient} bgClip="text">
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center">
+            <Box flex={1}>
+              <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={4} bgGradient={bgGradient} bgClip="text">
                 Our Story
               </Heading>
-              <Text fontSize="lg" color={textColor} mb={4}>
+              <Text fontSize={{ base: "md", md: "lg" }} color={textColor} mb={4}>
                 Noel Reys Academy was founded in 2022 with a mission to provide high-quality, accessible forex education to traders around the world. What started with just a passionate trader has grown into a large community of forex enthusiasts.
               </Text>
-              <Text fontSize="lg" color={textColor} mb={4}>
+              <Text fontSize={{ base: "md", md: "lg" }} color={textColor} mb={4}>
                 Over the years, we've helped hundreds of students achieve their trading goals, from beginners taking their first steps in the forex market to experienced traders refining their strategies.
               </Text>
-              <Text fontSize="lg" color={textColor}>
+              <Text fontSize={{ base: "md", md: "lg" }} color={textColor}>
                 Our commitment to excellence in education and our focus on practical, results-driven training has made Noel Reys Academy a leader in the field of forex education.
               </Text>
             </Box>
-            <Image
-              src={tradingIMAGE}
-              alt="Forex Trading Chart"
-              borderRadius="lg"
-              boxShadow="lg"
-              width="600%"
-              height="400"
-              objectFit="cover"
-            />
-          </SimpleGrid>
+            <Box flex={1}>
+              <Image
+                src={tradingIMAGE}
+                alt="Forex Trading Chart"
+                borderRadius="lg"
+                boxShadow="lg"
+                width="100%"
+                height={{ base: "200px", md: "400px" }}
+                objectFit="cover"
+              />
+            </Box>
+          </Stack>
 
           {/* Milestones */}
           <Box>
-            <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
               Our Journey
             </Heading>
-            <Flex justifyContent="space-between" alignItems="center" position="relative">
-              {milestones.map((milestone, index) => (
-                <VStack key={index} align="center" zIndex={1}>
-                  <Box
-                    // bg={cardBg}
-                    p={2}
-                    borderRadius="full"
-                    // boxShadow="md"
-                    mb={2}
-                  >
-                    <Icon as={History} boxSize={8} color="blue.500" />
+            {isMobile ? (
+              <VStack spacing={6} align="stretch">
+                {milestones.map((milestone, index) => (
+                  <Box key={index} bg={cardBg} p={4} borderRadius="lg" boxShadow="md">
+                    <Flex align="center">
+                      <Icon as={History} boxSize={6} color="blue.500" mr={4} />
+                      <VStack align="start" spacing={1}>
+                        <Badge colorScheme="blue" fontSize="sm">
+                          {milestone.year}
+                        </Badge>
+                        <Text fontWeight="bold" color={headingColor}>
+                          {milestone.event}
+                        </Text>
+                      </VStack>
+                    </Flex>
                   </Box>
-                  <Badge colorScheme="blue" fontSize="md" mb={2}>
-                    {milestone.year}
-                  </Badge>
-                  <Text fontWeight="bold" textAlign="center" color={headingColor}>
-                    {milestone.event}
-                  </Text>
-                </VStack>
-              ))}
-              {/* <Box
-                position="absolute"
-                height="2px"
-                bg="blue.500"
-                left="10%"
-                right="10%"
-                top="22px"
-                zIndex={0}
-              /> */}
-            </Flex>
+                ))}
+              </VStack>
+            ) : (
+              <Flex justifyContent="space-between" alignItems="center" position="relative">
+                {milestones.map((milestone, index) => (
+                  <VStack key={index} align="center" zIndex={1}>
+                    <Box p={2} borderRadius="full" mb={2}>
+                      <Icon as={History} boxSize={8} color="blue.500" />
+                    </Box>
+                    <Badge colorScheme="blue" fontSize="md" mb={2}>
+                      {milestone.year}
+                    </Badge>
+                    <Text fontWeight="bold" textAlign="center" color={headingColor}>
+                      {milestone.event}
+                    </Text>
+                  </VStack>
+                ))}
+              </Flex>
+            )}
           </Box>
 
           {/* Meet the Team */}
           <Box>
-            <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
               Meet Our Team
             </Heading>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
@@ -136,15 +148,15 @@ export default function About() {
                       src={`https://via.placeholder.com/300x300?text=${member.name}`} 
                       alt={member.name} 
                       borderRadius="full" 
-                      boxSize="200px"
+                      boxSize={{ base: "150px", md: "200px" }}
                     />
-                    <Heading as="h3" size="lg" color={headingColor}>
+                    <Heading as="h3" size={{ base: "md", md: "lg" }} color={headingColor}>
                       {member.name}
                     </Heading>
                     <Text fontWeight="bold" color="blue.500">
                       {member.role}
                     </Text>
-                    <Text color={textColor} textAlign="center">{member.bio}</Text>
+                    <Text color={textColor} textAlign="center" fontSize={{ base: "sm", md: "md" }}>{member.bio}</Text>
                   </VStack>
                 </Box>
               ))}
@@ -153,7 +165,7 @@ export default function About() {
 
           {/* Why Choose Us */}
           <Box>
-            <Heading as="h2" size="xl" mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
+            <Heading as="h2" size={{ base: "lg", md: "xl" }} mb={8} textAlign="center" bgGradient={bgGradient} bgClip="text">
               Why Choose Noel Reys Academy
             </Heading>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
@@ -173,11 +185,11 @@ export default function About() {
                   transition="all 0.3s"
                   _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg' }}
                 >
-                  <Icon as={feature.icon} boxSize={10} color="blue.500" />
-                  <Heading as="h3" size="md" color={headingColor}>
+                  <Icon as={feature.icon} boxSize={{ base: 8, md: 10 }} color="blue.500" />
+                  <Heading as="h3" size={{ base: "sm", md: "md" }} color={headingColor}>
                     {feature.title}
                   </Heading>
-                  <Text color={textColor}>{feature.description}</Text>
+                  <Text color={textColor} fontSize={{ base: "sm", md: "md" }}>{feature.description}</Text>
                 </VStack>
               ))}
             </SimpleGrid>

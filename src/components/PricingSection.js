@@ -177,7 +177,21 @@ export default function PricingSection() {
         </VStack>
         {isMobile ? (
           <Box>
-            <Flex justifyContent="center" alignItems="center" mb={4}>
+            <PricingCard {...plans[currentPlanIndex]} isMobile={true} />
+            {/* <HStack justifyContent="center" mt={4} spacing={2}>
+              {plans.map((_, index) => (
+                <Box
+                  key={index}
+                  w={2}
+                  h={2}
+                  borderRadius="full"
+                  bg={index === currentPlanIndex ? "blue.500" : "gray.300"}
+                  cursor="pointer"
+                  onClick={() => setCurrentPlanIndex(index)}
+                />
+              ))}
+            </HStack> */}
+            <Flex justifyContent="center" alignItems="center"x mt={4}>
               <IconButton
                 icon={<ChevronLeft />}
                 onClick={handlePrevPlan}
@@ -194,20 +208,6 @@ export default function PricingSection() {
                 variant="ghost"
               />
             </Flex>
-            <PricingCard {...plans[currentPlanIndex]} isMobile={true} />
-            <HStack justifyContent="center" mt={4} spacing={2}>
-              {plans.map((_, index) => (
-                <Box
-                  key={index}
-                  w={2}
-                  h={2}
-                  borderRadius="full"
-                  bg={index === currentPlanIndex ? "blue.500" : "gray.300"}
-                  cursor="pointer"
-                  onClick={() => setCurrentPlanIndex(index)}
-                />
-              ))}
-            </HStack>
           </Box>
         ) : (
           <Stack

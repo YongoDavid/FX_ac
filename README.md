@@ -74,30 +74,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-TOAST : Used to display a temporary message to the user
-COME BACK AND CONTINUE FROM Enrollment.js and V0
-
-i am yet to modify the comments section , i need to install (chakra snippet add blockquote)
-
-continue from the landing page and home page , on work machine.
-
-UI changes from work home machine.
-
-there are some warnings for LostSizeCalcultor i still need to resolve.
-
-COME BACK AND WORK ON THE NAVBAR FOR MOBILE SCREENS
-
-New corrections i need to make to the website :
-increase the hamburger menu size (Done)
-i need smooth trasitions to all the pages.(Did not like it)
-for the enroll place ,the price should automatically show based the plan selected.(Done)
-Add a section for including bonus on promo code(Removed)
-remove T&C and PP from footer area.(leaving that for now)
-Add links to the videos to watch and open the vidoes on youtube(Done).
-Make sure that all pages start from to top, when they are loaded(Done).
-Learn about the calculators i put in place and how they should work.
-
-Move to mobile design 
-Made improvement on the Header / Navbar.
-Made improvement on the Footer.

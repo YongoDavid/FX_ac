@@ -17,9 +17,9 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  Badge,
+  useBreakpointValue,
 } from '@chakra-ui/react';
-import { User, Mail, AlertCircle } from 'lucide-react';
+import { User, Mail, AlertCircle} from 'lucide-react';
 
 function Enrollment() {
   const [formData, setFormData] = useState({
@@ -40,6 +40,8 @@ function Enrollment() {
     'linear(to-r, teal.200, blue.200)'
   );
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -58,48 +60,49 @@ function Enrollment() {
   };
 
   return (
-    <Box bg={bgColor} minHeight="100vh" py={16}>
-      <Container maxW="1200px">
-        <VStack spacing={12} align="stretch">
+    <Box bg={bgColor} minHeight="100vh">
+      <Container maxW="1300px" py={16}>
+        <VStack spacing={isMobile ? 8 : 16} align="stretch">
           <Box textAlign="center">
-            <Heading as="h1" size="2xl" mb={4} bgGradient={bgGradient} bgClip="text">
+            <Heading as="h1" size={isMobile ? "xl" : "2xl"} mb={4} bgGradient={bgGradient} bgClip="text">
               Enroll for Mentorship
             </Heading>
-            <Text fontSize="xl" color={textColor}>
+            <Text fontSize={isMobile ? "lg" : "xl"} color={textColor}>
               Take the first step towards mastering forex trading
             </Text>
           </Box>
           
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={isMobile ? 6 : 10}>
             <Box
               as="form"
               onSubmit={handleSubmit}
               bg={cardBg}
-              p={8}
+              p={isMobile ? 6 : 8}
               borderRadius="lg"
               boxShadow="xl"
             >
-              <VStack spacing={6} align="stretch">
+              <VStack spacing={isMobile ? 4 : 6} align="stretch">
                 <FormControl isRequired>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel fontSize={isMobile ? "sm" : "md"}>Name</FormLabel>
                   <InputGroup>
                     <InputLeftElement pointerEvents="none">
-                      <Icon as={User} color="gray.300" />
+                      <Icon as={User} color="gray.300" boxSize={isMobile ? 4 : 5} />
                     </InputLeftElement>
                     <Input 
                       name="name" 
                       value={formData.name} 
                       onChange={handleChange} 
                       placeholder="Enter your name"
+                      size={isMobile ? "sm" : "md"}
                     />
                   </InputGroup>
                 </FormControl>
                 
                 <FormControl isRequired>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel fontSize={isMobile ? "sm" : "md"}>Email</FormLabel>
                   <InputGroup>
                     <InputLeftElement pointerEvents="none">
-                      <Icon as={Mail} color="gray.300" />
+                      <Icon as={Mail} color="gray.300" boxSize={isMobile ? 4 : 5} />
                     </InputLeftElement>
                     <Input 
                       name="email" 
@@ -107,21 +110,20 @@ function Enrollment() {
                       value={formData.email} 
                       onChange={handleChange} 
                       placeholder="Enter your email"
+                      size={isMobile ? "sm" : "md"}
                     />
                   </InputGroup>
                 </FormControl>
                 
                 <FormControl isRequired>
-                  <FormLabel>Select Course</FormLabel>
+                  <FormLabel fontSize={isMobile ? "sm" : "md"}>Select Course</FormLabel>
                   <InputGroup>
-                    <InputLeftElement pointerEvents="none">
-                      {/* <Icon as={BookOpen} color="gray.300" /> */}
-                    </InputLeftElement>
                     <Select 
                       name="course" 
                       value={formData.course} 
                       onChange={handleChange} 
                       placeholder="Select a plan"
+                      size={isMobile ? "sm" : "md"}
                     >
                       <option value="Monthly">Monthly Plan ($99)</option>
                       <option value="3 Months">3 Months Plan ($249)</option>
@@ -132,68 +134,43 @@ function Enrollment() {
                 </FormControl>
                 
                 <FormControl isRequired>
-                  <FormLabel>Payment Method</FormLabel>
+                  <FormLabel fontSize={isMobile ? "sm" : "md"}>Payment Method</FormLabel>
                   <InputGroup>
-                    <InputLeftElement pointerEvents="none">
-                      {/* <Icon as={CreditCard} color="gray.300" /> */}
-                    </InputLeftElement>
                     <Select 
                       name="paymentMethod" 
                       value={formData.paymentMethod} 
                       onChange={handleChange} 
                       placeholder="Select payment method"
+                      size={isMobile ? "sm" : "md"}
                     >
                       <option value="credit-card">Credit Card</option>
-                      <option value="paypal">Bank Trasnfer</option>
+                      <option value="paypal">Bank Transfer</option>
                       <option value="crypto">Cryptocurrency</option>
                     </Select>
                   </InputGroup>
                 </FormControl>
                 
-                <Button type="submit" colorScheme="blue" size="lg">
+                <Button type="submit" colorScheme="blue" size={isMobile ? "md" : "lg"} w="full">
                   Enroll Now
                 </Button>
               </VStack>
             </Box>
 
             <Box>
-              <Box bg={cardBg} p={6} borderRadius="lg" boxShadow="md" mb={6}>
-                <Flex align="center" mb={4}>
-                  <Icon as={AlertCircle} color="blue.500" mr={2} />
-                  <Heading as="h2" size="md" color={headingColor}>
+              <Box bg={cardBg} p={isMobile ? 4 : 6} borderRadius="lg" boxShadow="md" mb={6}>
+                <Flex align="center" mb={isMobile ? 2 : 4}>
+                  <Icon as={AlertCircle} color="blue.500" mr={2} boxSize={isMobile ? 5 : 6} />
+                  <Heading as="h2" size={isMobile ? "sm" : "md"} color={headingColor}>
                     Why Choose Us
                   </Heading>
                 </Flex>
-                <VStack align="start" spacing={3}>
-                  <Text color={textColor}>✓ Expert-led live trading sessions</Text>
-                  <Text color={textColor}>✓ Comprehensive course materials</Text>
-                  <Text color={textColor}>✓ 24/7 community support</Text>
-                  <Text color={textColor}>✓ Regular market analysis updates</Text>
+                <VStack align="start" spacing={isMobile ? 2 : 3}>
+                  <Text color={textColor} fontSize={isMobile ? "sm" : "md"}>✓ Expert-led live trading sessions</Text>
+                  <Text color={textColor} fontSize={isMobile ? "sm" : "md"}>✓ Comprehensive course materials</Text>
+                  <Text color={textColor} fontSize={isMobile ? "sm" : "md"}>✓ 24/7 community support</Text>
+                  <Text color={textColor} fontSize={isMobile ? "sm" : "md"}>✓ Regular market analysis updates</Text>
                 </VStack>
               </Box>
-
-              {/* <Box bg={cardBg} p={6} borderRadius="lg" boxShadow="md">
-                <Flex align="center" mb={4}>
-                  <Icon as={AlertCircle} color="green.500" mr={2} />
-                  <Heading as="h2" size="md" color={headingColor}>
-                    Special Offers
-                  </Heading>
-                </Flex>
-                <VStack align="start" spacing={4}>
-                  <Flex align="center">
-                    <Badge colorScheme="green" fontSize="0.8em" mr={2}>
-                      20% OFF
-                    </Badge>
-                    <Text color={textColor}>Enroll in multiple courses</Text>
-                  </Flex>
-                  <Flex align="center">
-                    <Badge colorScheme="purple" fontSize="0.8em" mr={2}>
-                      10% OFF
-                    </Badge>
-                    <Text color={textColor}>Use code EARLYBIRD</Text>
-                  </Flex>
-                </VStack>
-              </Box> */}
             </Box>
           </SimpleGrid>
         </VStack>
@@ -203,3 +180,4 @@ function Enrollment() {
 }
 
 export default Enrollment;
+

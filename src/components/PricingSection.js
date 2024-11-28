@@ -167,7 +167,7 @@ export default function PricingSection() {
   return (
     <Box py={16} bg={bgColor}>
       <Container maxW="1300px">
-        <VStack as="section" textAlign="center" mb={12}>
+        <VStack as="section" textAlign="center" mb={10}>
           <Heading as="h2" size="xl" mb={1} textAlign="center" bgGradient={bgGradient} bgClip="text">
             Mentorship Plans
           </Heading>
@@ -178,19 +178,6 @@ export default function PricingSection() {
         {isMobile ? (
           <Box>
             <PricingCard {...plans[currentPlanIndex]} isMobile={true} />
-            {/* <HStack justifyContent="center" mt={4} spacing={2}>
-              {plans.map((_, index) => (
-                <Box
-                  key={index}
-                  w={2}
-                  h={2}
-                  borderRadius="full"
-                  bg={index === currentPlanIndex ? "blue.500" : "gray.300"}
-                  cursor="pointer"
-                  onClick={() => setCurrentPlanIndex(index)}
-                />
-              ))}
-            </HStack> */}
             <Flex justifyContent="center" alignItems="center"x mt={4}>
               <IconButton
                 icon={<ChevronLeft />}

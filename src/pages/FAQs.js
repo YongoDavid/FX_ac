@@ -73,7 +73,6 @@ export default function FAQs() {
             <Heading as="h1" size={isMobile ? "xl" : "2xl"} mb={4} bgGradient={bgGradient} bgClip="text">
               Frequently Asked Questions
             </Heading>
-            
             <Text fontSize={isMobile ? "lg" : "xl"} color={textColor}>
               Get answers to common questions about our forex trading courses
             </Text>

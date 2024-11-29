@@ -4,7 +4,6 @@ import LotSizeCalculator from './LotSizeCalculator';
 import PipsCalculator from './PipsCalculator';
 import RiskRewardCalculator from './RiskRewardCalculator';
 
-
 export default function Tools() {
   const bgColor = useColorModeValue('gray.50', 'gray.900');
   // const textColor = useColorModeValue('gray.800', 'gray.100');

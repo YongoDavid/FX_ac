@@ -16,7 +16,7 @@ function Footer() {
     { icon: Facebook, href: 'https://facebook.com/forexacademy' },
   ];
 
-  const quickLinks = ['Courses', 'About', 'Tools', 'FAQs', 'Terms of Service', 'Privacy Policy'];
+  const quickLinks = ['Courses', 'About', 'Tools', 'FAQs'];
 
   return (
     <Box as="footer" bg={bgColor} color={textColor} py={16}>

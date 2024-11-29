@@ -9,27 +9,27 @@ const slide = keyframes`
 
 const testimonials = [
   {
-    name: 'Alex Johnson',
+    name: 'Alex',
     role: 'Student',
-    text: 'Forex Academy transformed my trading skills. The courses are comprehensive and the instructors are top-notch.',
+    text: 'This program transformed my trading skills. The courses are comprehensive and the instructors are top-notch.',
     rating: 5,
   },
   {
-    name: 'Sarah Lee',
+    name: 'Sarah',
     role: 'Student',
-    text: "I have tried other forex courses, but none compare to the quality of education I received at Forex Academy.",
+    text: "I have tried other forex courses, but none compare to the quality of education I received at Noel reys Academy.",
     rating: 5,
   },
   {
-    name: 'Michael Chen',
+    name: 'Michael',
     role: 'Student',
-    text: " The blend of forex and crypto knowledge here is unparalleled. It's exactly what I needed for modern trading.",
+    text: " The forex knowledge here is unparalleled. It's exactly what I needed for modern trading.",
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
+    name: 'Johnson',
     role: 'Student',
-    text: 'The algorithmic trading course opened up a whole new world of possibilities for me. Highly recommended!',
+    text: 'These courses opened up a whole new world of possibilities for me. Highly recommended!',
     rating: 5,
   },
 ];

@@ -51,7 +51,7 @@ function Enrollment() {
     console.log('Form submitted:', formData);
     toast({
       title: 'Enrollment Successful',
-      description: "We've received your enrollment. Welcome to Forex Academy!",
+      description: "We've received your enrollment. Welcome to Noel reys Forex Academy!",
       status: 'success',
       duration: 4000,
       isClosable: true,
@@ -125,10 +125,10 @@ function Enrollment() {
                       placeholder="Select a plan"
                       size={isMobile ? "sm" : "md"}
                     >
-                      <option value="Monthly">Monthly Plan ($99)</option>
-                      <option value="3 Months">3 Months Plan ($249)</option>
-                      <option value="6 Months">6 Months Plan ($449)</option>
-                      <option value="Yearly">Yearly Plan ($799)</option>
+                      <option value="Monthly">Monthly Plan $99</option>
+                      <option value="3 Months">3 Months Plan $249</option>
+                      <option value="6 Months">6 Months Plan $449</option>
+                      <option value="Yearly">Yearly Plan $799</option>
                     </Select>
                   </InputGroup>
                 </FormControl>
@@ -145,7 +145,7 @@ function Enrollment() {
                     >
                       <option value="credit-card">Credit Card</option>
                       <option value="paypal">Bank Transfer</option>
-                      <option value="crypto">Cryptocurrency</option>
+                      {/* <option value="crypto">Cryptocurrency</option> */}
                     </Select>
                   </InputGroup>
                 </FormControl>

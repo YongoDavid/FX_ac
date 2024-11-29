@@ -66,7 +66,7 @@ function Home() {
               textShadow="1px 1px 2px rgba(0,0,0,0.2)"
               textAlign={{base: 'center' , md:'start'}}
             >
-              Expert-led courses, real-time analysis, and a supportive community to guide your forex journey in the decentralized future.
+              Expert-led courses, real-time analysis, and a supportive community to guide your forex journey.
             </Text>
           <Button
             as={RouterLink}
@@ -85,7 +85,7 @@ function Home() {
             mx={{ base: "auto", md: 0 }}
             display={{ base: "flex", md: "inline-flex" }}
           >
-          Start Your Forex Journey
+          Start Your Forex Journey Here
           </Button>
           </Box>
           <Box
@@ -160,10 +160,10 @@ function Home() {
           {/* Overview Section */}
           <Container maxW="1200px" py={10}>
             <Heading as="h2" size="xl" mb={5} textAlign="center" bgGradient={bgGradient} bgClip="text">
-              Welcome to Forex Academy
+              Welcome to Noel reys Academy
             </Heading>
             <Text fontSize="lg" mb={8} textAlign="center">
-              At Forex Academy, we're committed to providing top-tier education in forex trading. Our mission is to empower traders of all levels with the knowledge, skills, and tools needed to succeed in the dynamic world of foreign exchange markets.
+              At this Forex Academy, we're committed to providing top-tier education in forex trading. Our mission is to empower traders of all levels with the knowledge, skills, and tools needed to succeed in the dynamic world of foreign exchange markets.
             </Text>
           </Container>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
